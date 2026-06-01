@@ -549,9 +549,7 @@ section[id] {
   overflow: hidden;
   padding: 108px 0 96px;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 9% 8%, rgba(109, 220, 230, 0.1), transparent 28%),
-    linear-gradient(180deg, #141515 0%, #20211f 34%, #111213 100%);
+  background: var(--black);
 }
 
 .programs-section::before {
@@ -560,12 +558,10 @@ section[id] {
   inset: 18px var(--pad);
   max-width: var(--max);
   margin: 0 auto;
-  border: 1px solid rgba(246, 245, 240, 0.12);
-  border-radius: calc(var(--radius) + 6px);
-  background:
-    linear-gradient(135deg, rgba(246, 245, 240, 0.94), rgba(226, 224, 216, 0.86)),
-    var(--paper-2);
-  box-shadow: 0 32px 110px rgba(0, 0, 0, 0.44);
+  border: 1px solid rgba(246, 245, 240, 0.2);
+  border-radius: 18px;
+  background: #f6f5f0;
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.38);
   pointer-events: none;
 }
 
@@ -576,14 +572,15 @@ section[id] {
 
 .programs-heading {
   display: grid;
-  grid-template-columns: minmax(180px, 0.32fr) minmax(0, 1fr);
-  gap: clamp(28px, 6vw, 96px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
   align-items: start;
-  padding: 12px 0 38px;
+  max-width: 1120px;
+  padding: 20px 0 42px;
 }
 
 .programs-heading h2 {
-  max-width: 1080px;
+  max-width: 980px;
   margin: 0;
   color: var(--ink);
   font-size: clamp(2.45rem, 5vw, 5.25rem);
@@ -769,7 +766,7 @@ section[id] {
   gap: 0;
   border: 1px solid rgba(3, 3, 3, 0.22);
   border-radius: var(--radius);
-  background: rgba(246, 245, 240, 0.38);
+  background: #f6f5f0;
 }
 
 .flow-step {
@@ -797,7 +794,7 @@ section[id] {
   display: grid;
   place-items: center;
   color: rgba(3, 3, 3, 0.64);
-  background: #e9e7df;
+  background: #f6f5f0;
   transform: translateY(-50%);
 }
 
