@@ -4,131 +4,259 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MPU Safe | Strukturierte MPU Vorbereitung</title>
-  <meta name="description" content="Strukturierte MPU Vorbereitung mit Fallanalyse, Lernpaketen, Gespraechstraining und transparenten Zahlungsoptionen." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&amp;family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <meta name="description" content="Serioese MPU Vorbereitung mit Fallanalyse, Nachweisplanung, Gespraechstraining und vertraulichem Erstgespraech." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-grid" aria-hidden="true"></div>
+  <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
   <header class="site-header" data-site-header>
-    <a class="brand-mark" href="#top" aria-label="MPU Safe Startseite">
+    <a class="brand" href="#top" aria-label="MPU Safe Start">
       <img src="assets/brand/mpu-safe-logo.png" alt="MPU Safe" />
     </a>
+
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
       <span></span>
       <span></span>
     </button>
+
     <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
-      <a href="#case">Fallcheck</a>
-      <a href="#route">Fahrplan</a>
-      <a href="#programme">Programme</a>
-      <a href="#proof">Nachweise</a>
-      <a href="#contact">Kontakt</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#ueber-uns">&Uuml;ber uns</a>
+      <a href="#wissen">Wissen</a>
+      <a href="#standorte">Standorte</a>
     </nav>
-    <a class="header-cta" href="#contact">
-      Erstgespr&auml;ch
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
+
+    <div class="header-contact">
+      <a class="phone-link" href="tel:08008002277">
+        <span aria-hidden="true">TEL</span>
+        <strong>0800 800 22 77</strong>
+        <small>Kostenfrei &amp; diskret</small>
+      </a>
+      <a class="header-button" href="#kontakt">Kostenloses Erstgespr&auml;ch</a>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero-section" aria-labelledby="hero-title">
-      <picture class="hero-background" aria-hidden="true">
-        <source media="(max-width: 760px)" srcset="assets/optimized/road-mobile.jpg" />
+  <main id="content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <picture class="hero-image" aria-hidden="true">
+        <source media="(max-width: 760px)" srcset="assets/reference/road-mobile.png" />
         <img src="assets/reference/road-night.png" alt="" />
       </picture>
-      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-line top-line" aria-hidden="true"></div>
+      <div class="hero-line side-line" aria-hidden="true"></div>
 
       <div class="hero-inner">
         <div class="hero-copy reveal">
-          <p class="eyebrow">MPU Beratung, Lernpakete und Gespr&auml;chstraining</p>
-          <h1 id="hero-title">
-            MPU Safe
-            <span class="headline-media" aria-hidden="true"><img src="assets/generated/ornament-long-arrow.png" alt="" /></span>
-            macht deinen Weg zur&uuml;ck zum F&uuml;hrerschein planbar.
-          </h1>
+          <p class="eyebrow">MPU Vorbereitung mit Plan und Perspektive</p>
+          <h1 id="hero-title">Zur&uuml;ck zur Fahrt. <br />Zur&uuml;ck ins Leben.</h1>
           <p class="hero-lead">
-            Diskrete, strukturierte MPU Vorbereitung f&uuml;r Menschen, die nicht mit Standardantworten in die Begutachtung gehen wollen. Erst Fall verstehen, dann Nachweise planen, dann das Gespr&auml;ch belastbar trainieren.
+            Wir bereiten Sie strukturiert, diskret und zielgerichtet auf Ihre MPU vor -
+            mit Fallanalyse, Nachweisplanung und professionellem Gespr&auml;chstraining.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">
-              Kostenloses Erstgespr&auml;ch
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            <a class="button button-primary" href="#kontakt">
+              Kostenloses Erstgespr&auml;ch sichern
+              <span aria-hidden="true">&#8594;</span>
             </a>
+            <a class="button button-secondary" href="#ablauf">Ablauf entdecken</a>
+          </div>
+
+          <div class="trust-row" aria-label="MPU Safe Vorteile">
+            <div class="trust-item">
+              <span class="trust-icon" aria-hidden="true">01</span>
+              <strong>Diskret &amp; vertraulich</strong>
+              <small>Ihre Daten bleiben gesch&uuml;tzt.</small>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon" aria-hidden="true">02</span>
+              <strong>Individuell &amp; ehrlich</strong>
+              <small>Kein Standard. Ihr Weg.</small>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon" aria-hidden="true">03</span>
+              <strong>Strukturiert &amp; effektiv</strong>
+              <small>Planbar. Umsetzbar. Erfolgreich.</small>
+            </div>
           </div>
         </div>
 
-        <div class="hero-visual reveal" data-tilt>
-          <img class="hero-dashboard" src="assets/generated/product-dashboard.png" alt="Cinematic MPU Safe product dashboard with driving license and route plan" />
-          <img class="hero-license" src="assets/generated/license-hero.png" alt="" aria-hidden="true" />
-          <img class="hero-ornament" src="assets/generated/ornament-speed-arrow.png" alt="" aria-hidden="true" />
-          <div class="status-strip" aria-label="MPU Safe Ablaufstatus">
-            <span><strong>01</strong> Analyse</span>
-            <span><strong>02</strong> Nachweise</span>
-            <span><strong>03</strong> Training</span>
-          </div>
-        </div>
+        <aside class="hero-rail reveal" aria-label="Leitbegriffe">
+          <span>Vertrauen</span>
+          <span>Struktur</span>
+          <span>Zukunft</span>
+        </aside>
       </div>
 
-      <div class="hero-bottom-signal reveal" aria-label="Markenversprechen">
-        <span>Keine Bestehensgarantie</span>
-        <span>Klare Vorbereitung</span>
-        <span>Zahlung vor Buchung transparent</span>
+      <div class="stats-panel reveal" aria-label="Kennzahlen">
+        <article>
+          <span class="stat-mark" aria-hidden="true">K</span>
+          <div>
+            <strong><span data-counter data-count="1250">1.250</span>+</strong>
+            <p>erfolgreich vorbereitete Klient:innen</p>
+          </div>
+        </article>
+        <article>
+          <span class="stat-mark" aria-hidden="true">%</span>
+          <div>
+            <strong><span data-counter data-count="92">92</span> %</strong>
+            <p>Bestehensquote unserer Klient:innen</p>
+          </div>
+        </article>
+        <article>
+          <span class="stat-mark" aria-hidden="true">J</span>
+          <div>
+            <strong><span data-counter data-count="15">15</span>+</strong>
+            <p>Jahre Erfahrung in MPU-Beratung</p>
+          </div>
+        </article>
+        <article>
+          <span class="stat-mark" aria-hidden="true">D</span>
+          <div>
+            <strong><span data-counter data-count="100">100</span> %</strong>
+            <p>Diskretion &amp; Datenschutz garantiert</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="research-band" aria-labelledby="research-title">
-      <div class="section-kicker">MPU Safe Methode</div>
-      <div class="research-layout">
+    <section class="process-section" id="ablauf" aria-labelledby="process-title">
+      <div class="section-shell">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Unser bew&auml;hrter Prozess</p>
+          <h2 id="process-title">In 4 klaren Schritten zur besten Vorbereitung</h2>
+        </div>
+
+        <div class="process-grid" aria-label="MPU Safe Ablauf">
+          <article class="process-card reveal">
+            <div class="process-copy">
+              <span>01</span>
+              <h3>Fallanalyse</h3>
+              <p>Gemeinsam analysieren wir Ihren Fall, kl&auml;ren die Ursachen und definieren die Ziele.</p>
+            </div>
+            <img src="assets/generated/v2/process-fallanalyse-mono.jpg" alt="Dokument fuer Fallanalyse auf einem Klemmbrett" />
+          </article>
+
+          <div class="process-arrow" aria-hidden="true">&#8250;</div>
+
+          <article class="process-card reveal">
+            <div class="process-copy">
+              <span>02</span>
+              <h3>Nachweise</h3>
+              <p>Wir planen alle erforderlichen Nachweise individuell, realistisch und fristgerecht.</p>
+            </div>
+            <img src="assets/generated/v2/process-nachweise-mono.jpg" alt="Nachweisplan mit Checkliste" />
+          </article>
+
+          <div class="process-arrow" aria-hidden="true">&#8250;</div>
+
+          <article class="process-card reveal">
+            <div class="process-copy">
+              <span>03</span>
+              <h3>Training</h3>
+              <p>Im Gespr&auml;chstraining &uuml;ben wir realistische Situationen - sicher und souver&auml;n.</p>
+            </div>
+            <img src="assets/generated/v2/process-training-mono.jpg" alt="Ruhiger Beratungsraum fuer Gespraechstraining" />
+          </article>
+
+          <div class="process-arrow" aria-hidden="true">&#8250;</div>
+
+          <article class="process-card process-card-final reveal">
+            <img class="route-doodle" src="assets/generated/v2/route-arrow-white.png" alt="" aria-hidden="true" />
+            <div class="process-copy">
+              <span>04</span>
+              <h3>Termin</h3>
+              <p>Wir begleiten Sie bis zum MPU-Termin und stehen an Ihrer Seite.</p>
+            </div>
+            <img src="assets/generated/v2/process-termin-mono.jpg" alt="Fahrzeug auf nasser Strasse bei Nacht" />
+          </article>
+        </div>
+
+        <div class="competence-strip reveal" aria-label="Vertrauen durch Kompetenz">
+          <div class="competence-lead">
+            <span class="shield-mark" aria-hidden="true">OK</span>
+            <p>Vertrauen durch Kompetenz</p>
+            <h2>Mehr als Vorbereitung. <br />Ein Plan f&uuml;r Ihre Zukunft.</h2>
+          </div>
+          <article>
+            <strong>Medizinisch &amp; psychologisch fundiert</strong>
+            <p>Unsere Methoden basieren auf aktuellen wissenschaftlichen Standards.</p>
+          </article>
+          <article>
+            <strong>Erfahrene Experten</strong>
+            <p>Psychologen, Verkehrsexperten und MPU-Berater mit langj&auml;hriger Praxis.</p>
+          </article>
+          <article>
+            <strong>Ganzheitliche Begleitung</strong>
+            <p>Von der ersten Analyse bis zur erfolgreichen MPU - wir bleiben an Ihrer Seite.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section light-section" id="leistungen" aria-labelledby="services-title">
+      <div class="section-shell split-intro">
         <div>
-          <h2 id="research-title">Aus Unsicherheit wird ein klarer Fahrplan.</h2>
+          <p class="eyebrow dark">Leistungen</p>
+          <h2 id="services-title">Seri&ouml;se Vorbereitung beginnt mit der richtigen Einordnung.</h2>
+        </div>
+        <p>
+          MPU Safe verbindet pers&ouml;nliche Beratung, digitale Lernpakete und konkrete
+          Nachweisplanung. Der Ablauf bleibt klar, auch wenn der Fall komplex ist.
+        </p>
+      </div>
+
+      <div class="section-shell service-matrix">
+        <article class="service-card reveal">
+          <span>01</span>
+          <h3>Kostenloses Erstgespr&auml;ch</h3>
+          <p>Kurze, vertrauliche Einordnung von Anlass, Fristen und den wichtigsten Unterlagen.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>02</span>
+          <h3>Individuelle Fallanalyse</h3>
+          <p>Alkohol, Drogen, Punkte, Straftaten oder negatives Gutachten werden getrennt bewertet.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>03</span>
+          <h3>Nachweisplanung</h3>
+          <p>Abstinenz, Belege, Kurslogik und Zeitfenster werden realistisch und fr&uuml;h geplant.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>04</span>
+          <h3>Gespr&auml;chssimulation</h3>
+          <p>Antworten werden nicht auswendig gelernt, sondern glaubw&uuml;rdig und belastbar ge&uuml;bt.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section" id="wissen" aria-labelledby="case-title">
+      <div class="section-shell case-layout">
+        <div class="case-copy reveal">
+          <p class="eyebrow">Wissen &amp; Fallcheck</p>
+          <h2 id="case-title">Der Anlass entscheidet, welche Vorbereitung glaubw&uuml;rdig ist.</h2>
           <p>
-            MPU Safe verbindet Beratung, digitale Lernpakete, produktbezogene Fallauswahl, Zahlungsabwicklung und Nachweislogik zu einer Vorbereitung, die ruhig, nachvollziehbar und pr&uuml;fbar bleibt.
+            Eine gute MPU-Vorbereitung ist kein Skript. Sie zeigt, ob die Ursache verstanden,
+            die Ver&auml;nderung nachvollziehbar und der Alltag stabiler geworden ist.
           </p>
         </div>
-        <dl class="research-facts">
-          <div>
-            <dt>Leistung</dt>
-            <dd>MPU Beratung und digitale Lernpakete</dd>
-          </div>
-          <div>
-            <dt>Logik</dt>
-            <dd>Anlassbezogene Vorbereitung statt Pauschalversprechen</dd>
-          </div>
-          <div>
-            <dt>Material</dt>
-            <dd>Alkohol, Drogen, Verkehrsauff&auml;lligkeiten, Straftaten</dd>
-          </div>
-          <div>
-            <dt>Ton</dt>
-            <dd>Ruhig, direkt, diskret, ohne Erfolgsversprechen</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
 
-    <section class="case-section" id="case" aria-labelledby="case-title">
-      <div class="section-heading">
-        <p class="eyebrow">Fallcheck</p>
-        <h2 id="case-title">Der Anlass entscheidet, welche Vorbereitung glaubw&uuml;rdig ist.</h2>
-      </div>
-
-      <div class="case-grid">
         <article class="case-console reveal">
           <div class="console-head">
             <span>Case Intake</span>
             <strong data-case-code>ALK-01</strong>
           </div>
-          <div class="case-options" aria-label="MPU Anlass ausw&auml;hlen">
+
+          <div class="case-options" role="tablist" aria-label="MPU Anlass">
             <button type="button" class="case-option is-active" data-case="alcohol">Alkohol</button>
             <button type="button" class="case-option" data-case="drugs">Drogen</button>
             <button type="button" class="case-option" data-case="points">Punkte</button>
             <button type="button" class="case-option" data-case="review">Negatives Gutachten</button>
           </div>
-          <div class="case-output" aria-live="polite">
+
+          <div class="case-result" aria-live="polite">
             <span data-case-label>Alkohol-MPU</span>
             <h3 data-case-title>Trinkmuster, Nachweise und Ver&auml;nderung sauber verbinden.</h3>
             <p data-case-copy>
@@ -136,274 +264,174 @@
             </p>
           </div>
         </article>
+      </div>
+    </section>
 
-        <article class="route-card reveal">
-          <img src="assets/generated/route-glass-system.png" alt="Abstract route map in cyan glass style" />
-          <div>
-            <span>Route Logik</span>
-            <h3>Aus einem unscharfen Problem wird ein pr&uuml;fbarer Fahrplan.</h3>
-          </div>
-        </article>
-
-        <article class="integrity-panel reveal">
-          <div class="integrity-mark">OK</div>
-          <h3>Seri&ouml;se Vorbereitung sagt auch, was nicht versprochen werden darf.</h3>
+    <section class="about-section light-section" id="ueber-uns" aria-labelledby="about-title">
+      <div class="section-shell about-layout">
+        <div class="about-image reveal" aria-hidden="true">
+          <img src="assets/generated/v2/process-training-mono.jpg" alt="" />
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow dark">&Uuml;ber MPU Safe</p>
+          <h2 id="about-title">Klar in der Sache. Ruhig im Ton. Verbindlich im Plan.</h2>
           <p>
-            MPU Safe formuliert bewusst ohne Erfolgsgarantie. Vertrauen entsteht durch Analyse, Nachweisplanung und realistisches Training.
+            Unsere Vorbereitung bleibt bewusst sachlich: keine leeren Versprechen, keine Panik,
+            keine auswendig gelernten Standardantworten. Entscheidend ist, dass Ihr Fall
+            sauber verstanden und glaubw&uuml;rdig erkl&auml;rt werden kann.
           </p>
-        </article>
+          <div class="about-list">
+            <article>
+              <strong>Diskrete Analyse</strong>
+              <p>Wir sortieren, was wirklich relevant ist und was nur Druck erzeugt.</p>
+            </article>
+            <article>
+              <strong>Realistische Sprache</strong>
+              <p>Das Training klingt nach Ihnen - nicht nach einer Vorlage.</p>
+            </article>
+            <article>
+              <strong>Keine Erfolgsgarantie</strong>
+              <p>Seri&ouml;se Beratung bleibt ehrlich, auch wenn der Fall schwierig ist.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="route-section" id="route" aria-labelledby="route-title">
-      <div class="route-copy reveal">
-        <p class="eyebrow">Fahrplan</p>
-        <h2 id="route-title">Vier Etappen, die aus Druck wieder Handlung machen.</h2>
-        <p>
-          Die Seite zeigt den MPU-Prozess nicht als Angstthema, sondern als kontrollierbare Abfolge. Jede Etappe bekommt ein klares Ziel, ein Ergebnis und eine Sprache, die zum Gutachten passt.
-        </p>
-      </div>
+    <section class="proof-section" aria-labelledby="proof-title">
+      <div class="section-shell proof-layout">
+        <div class="proof-copy reveal">
+          <p class="eyebrow">Nachweise &amp; Vorbereitung</p>
+          <h2 id="proof-title">Am Ende muss die Ver&auml;nderung nachvollziehbar sein.</h2>
+          <p>
+            Je nach Anlass geh&ouml;ren andere Themen in die Vorbereitung. Wir strukturieren
+            die Inhalte so, dass sie im MPU-Gespr&auml;ch nicht improvisiert wirken.
+          </p>
+        </div>
 
-      <div class="timeline" aria-label="MPU Safe Fahrplan">
-        <article class="timeline-step reveal">
-          <span>01</span>
-          <h3>Erstgespr&auml;ch</h3>
-          <p>Grund, Fristen, vorhandene Unterlagen und Dringlichkeit werden eingeordnet.</p>
-        </article>
-        <article class="timeline-step reveal">
-          <span>02</span>
-          <h3>Fallanalyse</h3>
-          <p>Alkohol, Drogen, Punkte oder Vor-Gutachten werden getrennt betrachtet.</p>
-        </article>
-        <article class="timeline-step reveal">
-          <span>03</span>
-          <h3>Nachweise</h3>
-          <p>Abstinenz, Unterlagen, Kurslogik und Fristen werden fr&uuml;h geplant.</p>
-        </article>
-        <article class="timeline-step reveal">
-          <span>04</span>
-          <h3>Simulation</h3>
-          <p>Antworten werden nicht auswendig gelernt, sondern unter Druck ge&uuml;bt.</p>
-        </article>
-      </div>
-      <img class="route-ornament route-ornament-one" src="assets/generated/ornament-loop-arrow.png" alt="" aria-hidden="true" />
-    </section>
-
-    <section class="training-section" aria-labelledby="training-title">
-      <div class="training-media reveal">
-        <img src="assets/generated/consultation-cinematic.png" alt="Diskrete Beratungssituation in dunklem B&uuml;ro" />
-        <img class="training-scribble" src="assets/generated/ornament-case-route.png" alt="" aria-hidden="true" />
-      </div>
-      <div class="training-copy reveal">
-        <p class="eyebrow">Gespr&auml;chstraining</p>
-        <h2 id="training-title">Glaubw&uuml;rdig klingen hei&szlig;t: den eigenen Fall wirklich verstanden haben.</h2>
-        <div class="training-stack">
-          <article>
-            <span>Frage</span>
-            <p>Warum sollte man Ihnen heute glauben, dass sich etwas ge&auml;ndert hat?</p>
+        <div class="proof-grid">
+          <article class="proof-card reveal">
+            <span>Alkohol</span>
+            <p>Trinkmengen, Motive, Kontrollverlust, Abstinenzfrage, R&uuml;ckfallrisiko und Stabilisierung.</p>
           </article>
-          <article>
-            <span>Arbeit</span>
-            <p>Verantwortung, Ausl&ouml;ser, neue Routinen und Stabilisierung werden konkret gemacht.</p>
+          <article class="proof-card reveal">
+            <span>Drogen</span>
+            <p>Konsumverlauf, Drogenarten, Ersatzrisiken, soziale Umgebung und belastbare Schutzfaktoren.</p>
           </article>
-          <article>
-            <span>Probe</span>
-            <p>Die Simulation trainiert ruhige Antworten, auch wenn das Gespr&auml;ch unangenehm wird.</p>
+          <article class="proof-card reveal">
+            <span>Punkte</span>
+            <p>Verkehrsverhalten, Stressmuster, Risikobereitschaft und konkrete Routinen im Alltag.</p>
+          </article>
+          <article class="proof-card reveal">
+            <span>Gutachten</span>
+            <p>Schwachstellen, Widerspr&uuml;che, fehlende Belege und die Strategie f&uuml;r den zweiten Anlauf.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="programme-section" id="programme" aria-labelledby="programme-title">
-      <div class="section-heading compact">
-        <p class="eyebrow">Programme</p>
-        <h2 id="programme-title">Produkte wirken besser, wenn Umfang und Zahlung nicht versteckt werden.</h2>
-        <p>
-          Der Produktbereich macht aus vielen offenen Fragen eine klare Beratung. Preise, Laufzeit und Zahlungsart werden erst nach Einordnung verbindlich.
-        </p>
-      </div>
-
-      <div class="programme-grid" aria-label="Programme">
-        <article class="programme-card reveal" data-programme="start">
-          <span class="programme-tag">Start</span>
-          <h3>Fall-Check</h3>
-          <p>F&uuml;r Menschen, die nur wissen wollen, was als N&auml;chstes sinnvoll ist.</p>
-          <ul>
-            <li>Kurze Einordnung des MPU-Grunds</li>
-            <li>Risiken und Fristen erkennen</li>
-            <li>Empfehlung f&uuml;r oder gegen Vorbereitung</li>
-          </ul>
-          <button type="button" class="programme-select">Ausw&auml;hlen</button>
-        </article>
-
-        <article class="programme-card programme-featured reveal is-selected" data-programme="training">
-          <span class="programme-tag">Intensiv</span>
-          <h3>MPU Training</h3>
-          <p>Der Kernweg mit Analyse, Lernpaket, Nachweisplanung und Gespr&auml;chssimulation.</p>
-          <ul>
-            <li>Zwei Monate strukturierte Vorbereitung als Vorbereitungsphase</li>
-            <li>Alkohol, Drogen, Punkte oder Mischfall</li>
-            <li>Finaler Check vor dem Termin</li>
-          </ul>
-          <button type="button" class="programme-select">Ausgew&auml;hlt</button>
-        </article>
-
-        <article class="programme-card reveal" data-programme="review">
-          <span class="programme-tag">Review</span>
-          <h3>Gutachten-Review</h3>
-          <p>F&uuml;r Menschen, die schon ein negatives Gutachten oder einen zweiten Versuch haben.</p>
-          <ul>
-            <li>Schwachstellen lesen</li>
-            <li>Widerspr&uuml;che sortieren</li>
-            <li>Neuen Plan aufbauen</li>
-          </ul>
-          <button type="button" class="programme-select">Ausw&auml;hlen</button>
-        </article>
-      </div>
-
-      <div class="payment-strip reveal" aria-live="polite">
+    <section class="locations-section light-section" id="standorte" aria-labelledby="locations-title">
+      <div class="section-shell locations-layout">
         <div>
-          <span>Aktuelle Auswahl</span>
-          <strong data-programme-title>MPU Training</strong>
+          <p class="eyebrow dark">Standorte</p>
+          <h2 id="locations-title">Deutschlandweit erreichbar. Pers&ouml;nlich genug f&uuml;r Ihren Fall.</h2>
         </div>
-        <div>
-          <span>Zahlung</span>
-          <strong>Klarna oder PayPal nur, wenn im Angebot verf&uuml;gbar</strong>
-        </div>
-        <div>
-          <span>Hinweis</span>
-          <strong>Buchung erst nach pers&ouml;nlicher Best&auml;tigung</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="proof-section" id="proof" aria-labelledby="proof-title">
-      <div class="proof-copy reveal">
-        <p class="eyebrow">Nachweise</p>
-        <h2 id="proof-title">Die Vorbereitung muss am Ende belegbar sein.</h2>
-        <p>
-          Die Vorbereitung endet nicht bei einem guten Gef&uuml;hl. Relevante Themenfelder werden sichtbar dokumentiert, damit klar bleibt, was aufgearbeitet wurde.
-        </p>
-      </div>
-      <div class="certificate reveal" aria-label="Bescheinigung">
-        <div class="certificate-head">
-          <span>Bescheinigung</span>
-          <strong>MPU Vorbereitung</strong>
-        </div>
-        <div class="certificate-grid">
+        <div class="location-panel reveal">
           <div>
-            <h3>Verkehrsauff&auml;lligkeiten</h3>
-            <p>Einstellung zum Stra&szlig;enverkehr, Fahrstil, Risikobereitschaft, Stress- und Zeitmanagement.</p>
+            <strong>Telefonisch &amp; digital</strong>
+            <p>Erstgespr&auml;ch, Dokumentencheck und Vorbereitung sind ortsunabh&auml;ngig m&ouml;glich.</p>
           </div>
           <div>
-            <h3>Alkohol</h3>
-            <p>Trinkmengen, Motive, Kontrollverlust, Abstinenz, R&uuml;ckfallrisiko und Stabilisierung.</p>
-          </div>
-          <div>
-            <h3>Drogen</h3>
-            <p>Konsumverlauf, Drogenarten, Motive, Ersatzdrogen, Abstinenz und Risikofaktoren.</p>
-          </div>
-          <div>
-            <h3>Straftaten</h3>
-            <p>Einstellung, pers&ouml;nliche Hintergr&uuml;nde, neue Routinen und Schutzfaktoren.</p>
+            <strong>Regional planbar</strong>
+            <p>Der MPU-Termin, Fristen und Nachweise werden passend zu Ihrer Begutachtungsstelle eingeordnet.</p>
           </div>
         </div>
-      </div>
-      <img class="route-ornament route-ornament-two" src="assets/generated/ornament-dotted-route.png" alt="" aria-hidden="true" />
-    </section>
-
-    <section class="voices-section" aria-labelledby="voices-title">
-      <div class="voices-intro">
-        <p class="eyebrow">R&uuml;ckmeldungen</p>
-        <h2 id="voices-title">Ruhiger werden, bevor es ernst wird.</h2>
-      </div>
-      <div class="voice-carousel reveal" aria-live="polite">
-        <button type="button" class="voice-arrow" data-voice-dir="-1" aria-label="Vorherige Rueckmeldung">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 5l-7 7 7 7"/></svg>
-        </button>
-        <figure>
-          <blockquote data-voice-text>Ich hatte vorher nur Angst vor dem Gespr&auml;ch. Danach wusste ich, woran ich wirklich arbeiten muss.</blockquote>
-          <figcaption data-voice-name>Teilnehmer, Alkohol-MPU</figcaption>
-        </figure>
-        <button type="button" class="voice-arrow" data-voice-dir="1" aria-label="Naechste Rueckmeldung">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </button>
       </div>
     </section>
 
     <section class="faq-section" aria-labelledby="faq-title">
-      <div class="section-heading compact">
-        <p class="eyebrow">FAQ</p>
-        <h2 id="faq-title">Was vor der MPU oft unklar ist.</h2>
-      </div>
-      <div class="faq-list">
-        <details open>
-          <summary>Was passiert im kostenlosen Erstgespr&auml;ch?</summary>
-          <p>Der Anlass, vorhandene Unterlagen, Fristen und m&ouml;gliche Nachweise werden eingeordnet. Danach ist klarer, ob und welche Vorbereitung sinnvoll ist.</p>
-        </details>
-        <details>
-          <summary>Kann eine MPU garantiert bestanden werden?</summary>
-          <p>Nein. Eine seri&ouml;se Vorbereitung kann keine Garantie geben. Sie kann aber Risiken sichtbar machen und Antworten belastbar trainieren.</p>
-        </details>
-        <details>
-          <summary>Brauche ich Abstinenznachweise?</summary>
-          <p>Das h&auml;ngt vom Anlass, Zeitraum, Konsumverlauf und den Anforderungen des Einzelfalls ab. Deshalb geh&ouml;rt diese Frage fr&uuml;h in die Analyse.</p>
-        </details>
-        <details>
-          <summary>Ist Klarna oder PayPal automatisch verf&uuml;gbar?</summary>
-          <p>Nein. Zahlungsarten werden erst im konkreten Angebot gekl&auml;rt. Die Information bleibt transparent, ohne eine automatische Buchung auszul&ouml;sen.</p>
-        </details>
+      <div class="section-shell faq-layout">
+        <div class="section-heading narrow">
+          <p class="eyebrow">H&auml;ufige Fragen</p>
+          <h2 id="faq-title">Was vor der MPU oft unklar ist.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>Was passiert im kostenlosen Erstgespr&auml;ch?</summary>
+            <p>Wir ordnen Anlass, Fristen, vorhandene Unterlagen und m&ouml;gliche Nachweise ein. Danach ist klarer, welche Vorbereitung sinnvoll ist.</p>
+          </details>
+          <details>
+            <summary>Kann eine MPU garantiert bestanden werden?</summary>
+            <p>Nein. Eine seri&ouml;se Vorbereitung gibt keine Garantie. Sie kann Risiken sichtbar machen und das Gespr&auml;ch realistisch trainieren.</p>
+          </details>
+          <details>
+            <summary>Brauche ich Abstinenznachweise?</summary>
+            <p>Das h&auml;ngt vom Anlass, Konsumverlauf, Zeitraum und den Anforderungen des Einzelfalls ab. Deshalb geh&ouml;rt diese Frage fr&uuml;h in die Analyse.</p>
+          </details>
+          <details>
+            <summary>Wie kurzfristig kann ich starten?</summary>
+            <p>Ein Start ist oft kurzfristig m&ouml;glich. Ob das f&uuml;r Ihren MPU-Termin reicht, pr&uuml;fen wir ehrlich im Erstgespr&auml;ch.</p>
+          </details>
+        </div>
       </div>
     </section>
 
-    <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-copy reveal">
-        <p class="eyebrow">Kontakt</p>
-        <h2 id="contact-title">Sag kurz, worum es geht. Der Fahrplan kommt danach.</h2>
-        <p>
-          Vertraulich, kostenlos und ohne Druck. Dieses Formular ist in der Vorschau noch nicht angebunden.
-        </p>
+    <section class="contact-section" id="kontakt" aria-labelledby="contact-title">
+      <div class="section-shell contact-layout">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Kontakt</p>
+          <h2 id="contact-title">Sagen Sie kurz, worum es geht. Der Fahrplan kommt danach.</h2>
+          <p>
+            Vertraulich, kostenlos und ohne Druck. Dieses Demo-Formular ist noch nicht an ein CRM angebunden.
+          </p>
+        </div>
+
+        <form class="lead-form reveal" data-lead-form>
+          <label>
+            Name
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            Telefon oder E-Mail
+            <input type="text" name="contact" autocomplete="email" required />
+          </label>
+          <label>
+            MPU-Grund
+            <select name="reason" data-reason-select>
+              <option>Alkohol</option>
+              <option>Drogen</option>
+              <option>Punkte</option>
+              <option>Negatives Gutachten</option>
+              <option>Noch unsicher</option>
+            </select>
+          </label>
+          <label>
+            Kurzbeschreibung
+            <textarea name="message" rows="4" placeholder="Fristen, Gutachten, Nachweise oder konkrete Sorge"></textarea>
+          </label>
+          <button class="button button-primary" type="submit">
+            Anfrage vorbereiten
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+          <p class="form-status" data-form-status>Vorschau-Modus: Es wird nichts verschickt.</p>
+        </form>
       </div>
-      <form class="lead-form reveal" data-lead-form>
-        <label>
-          Name
-          <input type="text" name="name" autocomplete="name" required />
-        </label>
-        <label>
-          Telefon oder E-Mail
-          <input type="text" name="contact" autocomplete="email" required />
-        </label>
-        <label>
-          MPU-Grund
-          <select name="reason" data-reason-select>
-            <option>Alkohol</option>
-            <option>Drogen</option>
-            <option>Punkte</option>
-            <option>Negatives Gutachten</option>
-            <option>Noch unsicher</option>
-          </select>
-        </label>
-        <label>
-          Kurzbeschreibung
-          <textarea name="message" rows="4" placeholder="Fristen, Gutachten, Nachweise oder konkrete Sorge"></textarea>
-        </label>
-        <button class="button button-primary" type="submit">
-          Anfrage vorbereiten
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
-        </button>
-        <p class="form-status" data-form-status>Vorschau-Modus: Es wird nichts verschickt.</p>
-      </form>
     </section>
   </main>
 
   <footer class="site-footer">
-    <img src="assets/brand/mpu-safe-logo.png" alt="MPU Safe" />
-    <p>Strukturierte MPU-Vorbereitung mit Analyse, Lernpaketen, Gespr&auml;chstraining und transparenter Zahlungsinformation.</p>
-    <nav aria-label="Footer Navigation">
-      <a href="#case">Fallcheck</a>
-      <a href="#programme">Programme</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
+    <div class="section-shell footer-inner">
+      <a class="brand footer-brand" href="#top" aria-label="MPU Safe Start">
+        <img src="assets/brand/mpu-safe-logo.png" alt="MPU Safe" />
+      </a>
+      <p>Strukturierte MPU-Vorbereitung mit Analyse, Nachweisplanung, Gespr&auml;chstraining und ehrlicher Einsch&auml;tzung.</p>
+      <nav aria-label="Footer Navigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="script.js"></script>
