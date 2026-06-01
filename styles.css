@@ -864,6 +864,86 @@ main > section {
   line-height: 1.5;
 }
 
+.access-section {
+  padding: 108px 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(109, 220, 230, 0.09), transparent 26%),
+    var(--black);
+}
+
+.access-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.76fr) minmax(480px, 1fr);
+  gap: clamp(36px, 7vw, 96px);
+  align-items: start;
+}
+
+.access-copy h2 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2.35rem, 4.5vw, 4.7rem);
+  line-height: 1;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.access-copy p:not(.eyebrow) {
+  max-width: 590px;
+  margin: 24px 0 0;
+  color: rgba(246, 245, 240, 0.72);
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.access-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.access-card {
+  min-height: 178px;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 20px;
+  align-content: center;
+  padding: 26px;
+  border: 1px solid rgba(246, 245, 240, 0.22);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(246, 245, 240, 0.08), rgba(246, 245, 240, 0.024)),
+    var(--panel);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+}
+
+.access-card span {
+  grid-row: 1 / span 2;
+  width: 52px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(246, 245, 240, 0.38);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 860;
+}
+
+.access-card h3 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(1.28rem, 2vw, 1.7rem);
+  line-height: 1.08;
+  font-weight: 760;
+}
+
+.access-card p {
+  max-width: 580px;
+  margin: 8px 0 0;
+  color: rgba(246, 245, 240, 0.7);
+  line-height: 1.58;
+}
+
 .process-section,
 .case-section,
 .proof-section,
@@ -1785,6 +1865,7 @@ main > section {
 
   .split-intro,
   .case-layout,
+  .access-layout,
   .about-layout,
   .proof-layout,
   .locations-layout,
@@ -1808,6 +1889,9 @@ main > section {
 
   .case-console {
     min-height: 440px;
+  }
+  .access-card {
+    min-height: 150px;
   }
 }
 
@@ -2026,6 +2110,7 @@ main > section {
   .services-section,
   .about-section,
   .locations-section,
+  .access-section,
   .case-section,
   .proof-section,
   .faq-section,
