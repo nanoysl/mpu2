@@ -280,16 +280,16 @@ section[id] {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center center;
   opacity: 0.86;
-  filter: grayscale(1) saturate(0) contrast(1.16) brightness(0.68);
+  filter: saturate(0.82) contrast(1.06) brightness(0.58);
   transform: scale(1.02);
 }
 
 .hero-vignette {
   background:
-    linear-gradient(90deg, rgba(3, 3, 3, 0.96) 0%, rgba(3, 3, 3, 0.82) 32%, rgba(3, 3, 3, 0.3) 70%, rgba(3, 3, 3, 0.1) 100%),
-    linear-gradient(180deg, rgba(3, 3, 3, 0.68) 0%, rgba(3, 3, 3, 0.14) 48%, rgba(3, 3, 3, 0.96) 100%);
+    linear-gradient(90deg, rgba(3, 3, 3, 0.97) 0%, rgba(3, 3, 3, 0.78) 36%, rgba(3, 3, 3, 0.26) 72%, rgba(3, 3, 3, 0.18) 100%),
+    linear-gradient(180deg, rgba(3, 3, 3, 0.64) 0%, rgba(3, 3, 3, 0.18) 48%, rgba(3, 3, 3, 0.94) 100%);
 }
 
 .hero-line {
