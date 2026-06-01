@@ -1418,6 +1418,7 @@ section[id] {
 
 @media (max-width: 640px) {
   .hero-image img {
+    object-position: center center;
     transform: none;
   }
 
