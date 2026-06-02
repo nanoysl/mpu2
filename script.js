@@ -2,9 +2,15 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 
 // Replace these placeholders with approved external checkout URLs before launch.
 const CHECKOUT_LINKS = Object.freeze({
-  koffer: "#checkout-koffer",
-  simulator: "#checkout-simulator",
-  coaching: "#checkout-coaching"
+  koffer: "",
+  simulator: "",
+  coaching: ""
+});
+
+const CHECKOUT_FALLBACKS = Object.freeze({
+  koffer: "#kontakt",
+  simulator: "#kontakt",
+  coaching: "#kontakt"
 });
 
 window.CHECKOUT_LINKS = CHECKOUT_LINKS;
@@ -159,12 +165,14 @@ function initCaseCheck() {
 
 function initCheckoutLinks() {
   document.querySelectorAll("[data-checkout-product]").forEach((link) => {
-    const checkoutUrl = CHECKOUT_LINKS[link.dataset.checkoutProduct];
-    if (!checkoutUrl) return;
+    const product = link.dataset.checkoutProduct;
+    const checkoutUrl = CHECKOUT_LINKS[product];
+    const fallbackUrl = CHECKOUT_FALLBACKS[product] || "#kontakt";
+    const targetUrl = checkoutUrl && checkoutUrl.startsWith("http") ? checkoutUrl : fallbackUrl;
 
-    link.href = checkoutUrl;
+    link.href = targetUrl;
 
-    if (checkoutUrl.startsWith("http")) {
+    if (targetUrl.startsWith("http")) {
       link.target = "_blank";
       link.rel = "noopener";
       return;
