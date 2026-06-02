@@ -1,5 +1,7 @@
 # Livegang-Checkliste fuer MPU Safe
 
+WICHTIG: Diese Datei ist nur eine Vorlage. Keine echten Kundendaten, Zugangsdaten, Zahlungsdaten oder Steuerdaten im oeffentlichen Repo speichern.
+
 Diese Checkliste sammelt die Daten, die vor dem technischen Livegang final vom Betreiber bestaetigt oder geliefert werden muessen.
 
 ## Betreiber- und Kontaktdaten

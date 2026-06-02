@@ -28,10 +28,30 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Build public site artifact
+        run: |
+          set -eu
+          rm -rf dist
+          mkdir -p dist
+
+          cp index.html impressum.html datenschutz.html widerruf.html agb.html dist/
+          cp styles.css script.js dist/
+          cp -R assets dist/assets
+
+          if [ -f .nojekyll ]; then
+            cp .nojekyll dist/.nojekyll
+          fi
+
+          for optional in favicon.ico robots.txt site.webmanifest manifest.webmanifest browserconfig.xml; do
+            if [ -f "$optional" ]; then
+              cp "$optional" "dist/$optional"
+            fi
+          done
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
 
       - name: Deploy
         id: deployment
