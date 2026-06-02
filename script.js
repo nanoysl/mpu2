@@ -184,7 +184,7 @@ function initForm() {
     event.preventDefault();
     form.classList.add("is-sent");
     if (status) {
-      status.textContent = "Ihre Angaben wurden nicht gesendet. Bitte rufen Sie fuer die Anfrage aktuell 05971 / 9782341 an.";
+      status.textContent = "Ihre Angaben wurden nicht uebermittelt. Bitte rufen Sie fuer die Anfrage aktuell 05971 / 9782341 an.";
     }
   });
 }
