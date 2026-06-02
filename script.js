@@ -1,5 +1,14 @@
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Replace these placeholders with approved external checkout URLs before launch.
+const CHECKOUT_LINKS = Object.freeze({
+  koffer: "#checkout-koffer",
+  simulator: "#checkout-simulator",
+  coaching: "#checkout-coaching"
+});
+
+window.CHECKOUT_LINKS = CHECKOUT_LINKS;
+
 const caseData = {
   alcohol: {
     code: "ALK-01",
@@ -148,6 +157,24 @@ function initCaseCheck() {
   });
 }
 
+function initCheckoutLinks() {
+  document.querySelectorAll("[data-checkout-product]").forEach((link) => {
+    const checkoutUrl = CHECKOUT_LINKS[link.dataset.checkoutProduct];
+    if (!checkoutUrl) return;
+
+    link.href = checkoutUrl;
+
+    if (checkoutUrl.startsWith("http")) {
+      link.target = "_blank";
+      link.rel = "noopener";
+      return;
+    }
+
+    link.removeAttribute("target");
+    link.removeAttribute("rel");
+  });
+}
+
 function initForm() {
   const form = document.querySelector("[data-lead-form]");
   const status = document.querySelector("[data-form-status]");
@@ -157,7 +184,7 @@ function initForm() {
     event.preventDefault();
     form.classList.add("is-sent");
     if (status) {
-      status.textContent = "Anfrage vorbereitet. In der Live-Version wuerde jetzt die sichere Kontaktstrecke starten.";
+      status.textContent = "Ihre Angaben wurden nicht gesendet. Bitte rufen Sie fuer die Anfrage aktuell 05971 / 9782341 an.";
     }
   });
 }
@@ -167,5 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initReveals();
   initCounters();
   initCaseCheck();
+  initCheckoutLinks();
   initForm();
 });
