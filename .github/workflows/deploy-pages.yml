@@ -52,6 +52,8 @@ jobs:
             fi
           done
 
+          cp dist/index.html dist/404.html
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:

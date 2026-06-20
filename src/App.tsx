@@ -36,6 +36,16 @@ import processNachweiseImage from "../assets/generated/v4/process-nachweise.png"
 import processTrainingImage from "../assets/generated/v4/process-training.png";
 import processTerminImage from "../assets/generated/v4/process-termin.png";
 
+const appBasePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+function appHref(href: string) {
+  if (/^(https?:|mailto:|tel:)/.test(href) || !href.startsWith("/")) {
+    return href;
+  }
+
+  return `${appBasePath}${href}`;
+}
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 }
@@ -69,7 +79,7 @@ function Navbar() {
       <ul className="hidden items-center gap-8 text-sm font-normal text-[#030303] md:flex">
         {links.map((link) => (
           <li className="group flex items-center gap-1" key={link.label}>
-            <a className="flex items-center gap-1 transition-opacity hover:opacity-70" href={link.href}>
+            <a className="flex items-center gap-1 transition-opacity hover:opacity-70" href={appHref(link.href)}>
               {link.label}
               {link.hasChevron ? (
                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -78,13 +88,13 @@ function Navbar() {
           </li>
         ))}
       </ul>
-      <a className="md:hidden" href="/">
+      <a className="md:hidden" href={appHref("/")}>
         <span className="text-xl font-normal tracking-tighter text-[#030303]">MPU Safe</span>
       </a>
       <div className="flex flex-1 justify-end">
         <motion.a
           className="group flex items-center gap-2 rounded-full bg-[#F26522] py-1.5 pl-2 pr-4 text-white transition-colors hover:bg-[#e05a1a] md:gap-3 md:py-2 md:pr-6"
-          href="/#kontakt"
+          href={appHref("/#kontakt")}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -128,7 +138,7 @@ function BottomLeftCard() {
       </div>
       <motion.a
         className="group flex items-center gap-2 self-start rounded-full bg-[#F26522] py-1.5 pl-1.5 pr-5 text-white transition-colors hover:bg-[#e05a1a]"
-        href="/#programme"
+        href={appHref("/#programme")}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
@@ -166,7 +176,7 @@ function BottomRightCorner() {
         <p className="text-[16px] font-normal text-[#030303] md:text-[20px]">Erstgespraech</p>
         <a
           className="flex items-center gap-1 text-[#030303] transition-opacity hover:opacity-70"
-          href="/#kontakt"
+          href={appHref("/#kontakt")}
         >
           <span className="text-[12px] font-normal md:text-[15px]">Kontakt</span>
           <ChevronRight className="h-4 w-4" />
@@ -243,7 +253,7 @@ function AboutSection() {
           <div className="mb-8">
             <a
               className="group flex w-fit items-center gap-3 rounded-full bg-[#F26522] py-2 pl-5 pr-2 text-[13px] font-medium text-white hover:bg-[#e05a1a] sm:pl-6 sm:text-[14px]"
-              href="/#kontakt"
+              href={appHref("/#kontakt")}
             >
               <span className="h-[20px] overflow-hidden">
                 <span className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-1/2">
@@ -294,7 +304,7 @@ function AboutSection() {
             </p>
             <a
               className="group flex w-fit items-center gap-3 rounded-full bg-[#F26522] py-2 pl-5 pr-2 text-[13px] font-medium text-white hover:bg-[#e05a1a] sm:pl-6 sm:text-[14px]"
-              href="/#kontakt"
+              href={appHref("/#kontakt")}
             >
               <span className="h-[20px] overflow-hidden">
                 <span className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-1/2">
@@ -506,7 +516,7 @@ function MethodSection() {
                 </h3>
                 <a
                   className="flex w-full items-center justify-between rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]"
-                  href="/#programme"
+                  href={appHref("/#programme")}
                 >
                   Programme ansehen
                   <ArrowRight className="h-5 w-5" />
@@ -874,7 +884,7 @@ function PricingPackages() {
               <p className="c2-desc">
                 Perfekt, wenn du schnell Ordnung in deinen Fall bringen und die naechsten Schritte klar sehen willst.
               </p>
-              <a className="c2-btn" data-package="MPU Erste-Hilfe-Koffer" href="/koffer">
+              <a className="c2-btn" data-package="MPU Erste-Hilfe-Koffer" href={appHref("/koffer")}>
                 Mehr ansehen
               </a>
               <img alt="" className="c2-product" loading="lazy" src={kofferImage} />
@@ -922,7 +932,7 @@ function PricingPackages() {
                 <li>Digitale Vorbereitung im Browser</li>
                 <li>Zugang nach externer Zahlung</li>
               </ul>
-              <a className="c2-btn" data-package="MPU Safe Simulator" href="/simulator">
+              <a className="c2-btn" data-package="MPU Safe Simulator" href={appHref("/simulator")}>
                 Mehr ansehen
               </a>
               <img alt="" className="c2-product" loading="lazy" src={simulatorImage} />
@@ -941,7 +951,7 @@ function PricingPackages() {
             <br />
             Dann klaeren wir Fallanalyse, Nachweise und Gespraechstraining individuell im Erstgespraech.
           </p>
-          <a className="c2-btn" data-package="1:1 MPU Coaching" href="/coaching">
+          <a className="c2-btn" data-package="1:1 MPU Coaching" href={appHref("/coaching")}>
             Coaching ansehen
           </a>
           <div
@@ -1114,13 +1124,13 @@ function CTA() {
             Bring deinen Fall in einen klaren Fahrplan.
           </h2>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a className="inline-flex items-center gap-3 rounded-full bg-[#F26522] py-2 pl-7 pr-2 text-base font-normal text-white transition-colors hover:bg-[#e05a1a]" href="/#programme">
+            <a className="inline-flex items-center gap-3 rounded-full bg-[#F26522] py-2 pl-7 pr-2 text-base font-normal text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/#programme")}>
               Programme
               <span className="rounded-full bg-white p-2">
                 <ArrowRight className="h-5 w-5 text-[#F26522]" />
               </span>
             </a>
-            <a className="inline-flex items-center justify-center rounded-full bg-[#F26522] px-7 py-3 text-base font-normal text-white transition-colors hover:bg-[#e05a1a]" href="/#kontakt">
+            <a className="inline-flex items-center justify-center rounded-full bg-[#F26522] px-7 py-3 text-base font-normal text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/#kontakt")}>
               Kontakt
             </a>
           </div>
@@ -1128,6 +1138,25 @@ function CTA() {
       </div>
     </section>
   );
+}
+
+function footerHref(link: string) {
+  const href =
+    link === "Impressum"
+      ? "impressum.html"
+      : link === "Datenschutz"
+        ? "datenschutz.html"
+        : link === "Über uns"
+          ? "/ueber-uns"
+          : link === "Koffer"
+            ? "/koffer"
+            : link === "Simulator"
+              ? "/simulator"
+              : link === "Coaching"
+                ? "/coaching"
+                : "/#kontakt";
+
+  return appHref(href);
 }
 
 function Footer() {
@@ -1154,21 +1183,7 @@ function Footer() {
                 {column.links.map((link) => (
                   <a
                     className="text-sm text-[#030303] transition-opacity hover:opacity-70"
-                    href={
-                      link === "Impressum"
-                        ? "impressum.html"
-                        : link === "Datenschutz"
-                          ? "datenschutz.html"
-                          : link === "Über uns"
-                            ? "/ueber-uns"
-                          : link === "Koffer"
-                            ? "/koffer"
-                            : link === "Simulator"
-                              ? "/simulator"
-                              : link === "Coaching"
-                                ? "/coaching"
-                                : "/#kontakt"
-                    }
+                    href={footerHref(link)}
                     key={link}
                   >
                     {link}
@@ -1194,19 +1209,19 @@ function PageHeader() {
 
   return (
     <nav className="mx-auto flex w-full max-w-[1536px] items-center justify-between px-6 py-6 md:px-10">
-      <a className="text-xl font-medium tracking-tight text-[#030303]" href="/">
+      <a className="text-xl font-medium tracking-tight text-[#030303]" href={appHref("/")}>
         MPU Safe
       </a>
       <div className="hidden items-center gap-7 text-sm text-[#030303] md:flex">
         {links.map((link) => (
-          <a className="transition-opacity hover:opacity-70" href={link.href} key={link.label}>
+          <a className="transition-opacity hover:opacity-70" href={appHref(link.href)} key={link.label}>
             {link.label}
           </a>
         ))}
       </div>
       <a
         className="inline-flex items-center gap-2 rounded-full bg-[#F26522] py-2 pl-4 pr-5 text-sm font-medium text-white transition-colors hover:bg-[#e05a1a]"
-        href="/#kontakt"
+        href={appHref("/#kontakt")}
       >
         <ArrowUpRight className="h-4 w-4" />
         Kontakt
@@ -1243,14 +1258,14 @@ function ProgramHero({ programKey }: { programKey: ProgramKey }) {
             <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
               <a
                 className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]"
-                href={programKey === "coaching" ? "/#kontakt" : program.checkout}
+                href={programKey === "coaching" ? appHref("/#kontakt") : program.checkout}
               >
                 {program.primaryLabel}
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
                 className="inline-flex items-center justify-center rounded-full bg-[#F4F6FA] px-7 py-4 text-[15px] font-medium text-[#030303] transition-colors hover:bg-[#e8ebf1]"
-                href={program.secondaryHref}
+                href={appHref(program.secondaryHref)}
               >
                 {program.secondaryLabel}
               </a>
@@ -1384,11 +1399,11 @@ function OwnerAboutPage() {
             </div>
 
             <div className="mt-12 grid gap-4 sm:grid-cols-2">
-              <a className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]" href="/#kontakt">
+              <a className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/#kontakt")}>
                 Erstgespräch planen
                 <ArrowRight className="h-5 w-5" />
               </a>
-              <a className="inline-flex items-center justify-center rounded-full bg-[#F4F6FA] px-7 py-4 text-[15px] font-medium text-[#030303] transition-colors hover:bg-[#e8ebf1]" href="/#programme">
+              <a className="inline-flex items-center justify-center rounded-full bg-[#F4F6FA] px-7 py-4 text-[15px] font-medium text-[#030303] transition-colors hover:bg-[#e8ebf1]" href={appHref("/#programme")}>
                 Programme ansehen
               </a>
             </div>
@@ -1587,7 +1602,7 @@ function LockedSimulatorAccess() {
               Simulator kaufen
               <ArrowRight className="h-5 w-5" />
             </a>
-            <a className="inline-flex items-center justify-center rounded-full bg-[#F4F6FA] px-7 py-4 text-[15px] font-medium text-[#030303]" href="/simulator">
+            <a className="inline-flex items-center justify-center rounded-full bg-[#F4F6FA] px-7 py-4 text-[15px] font-medium text-[#030303]" href={appHref("/simulator")}>
               Produktseite
             </a>
           </div>
@@ -1900,7 +1915,7 @@ function EnhancedSimulatorQuestionnaire() {
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]" href="/coaching">
+                <a className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/coaching")}>
                   Coaching ansehen
                   <ArrowRight className="h-5 w-5" />
                 </a>
@@ -2041,7 +2056,14 @@ function HomePage() {
 }
 
 function normalizeRoute(pathname: string) {
-  const path = pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+  let path = pathname;
+
+  if (appBasePath && (path === appBasePath || path.startsWith(`${appBasePath}/`))) {
+    path = path.slice(appBasePath.length) || "/";
+  }
+
+  path = path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
+
   if (
     path === "/koffer" ||
     path === "/simulator" ||
