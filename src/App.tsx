@@ -188,15 +188,15 @@ function BottomRightCorner() {
 
 function Hero() {
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-[#f0f0f0] p-3 md:p-5" id="top">
-      <section className="group relative flex h-full w-full max-w-[1536px] flex-col items-center overflow-hidden rounded-[1.5rem] md:rounded-[3rem]">
+    <div className="flex min-h-[100dvh] w-full items-center justify-center bg-[#f0f0f0] py-3 md:py-5" id="top">
+      <section className="site-shell hero-shell group relative flex flex-col items-center overflow-hidden rounded-[1.5rem] md:rounded-[3rem]">
         <img
           alt=""
           className="absolute inset-0 z-0 h-full w-full object-cover object-[55%_50%] lg:object-center"
           src={heroMpuPlanImage}
         />
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_5%,rgba(255,255,255,0.82),rgba(255,255,255,0.24)_44%,rgba(240,240,240,0.08)_100%)]" />
-        <div className="relative z-10 flex h-full w-full flex-col items-center">
+        <div className="relative z-10 flex min-h-[inherit] w-full flex-col items-center">
           <Navbar />
           <div className="flex w-full max-w-4xl flex-col items-center px-6 pt-8 text-center">
             <HeroBadge />
@@ -228,7 +228,7 @@ function Hero() {
 function AboutSection() {
   return (
     <section className="overflow-hidden rounded-[1.5rem] bg-white pb-12 pt-16 sm:pb-16 sm:pt-20 md:rounded-[3rem] lg:pb-24 lg:pt-32">
-      <div className="mx-auto max-w-[1440px]">
+      <div className="site-shell">
         <div className="mb-6 flex items-center gap-3 px-5 sm:mb-8 sm:px-8 lg:px-12">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-[11px] font-semibold text-white sm:h-7 sm:w-7 sm:text-[12px]">
             1
@@ -366,7 +366,7 @@ function MethodSection() {
 
   return (
     <section className="overflow-hidden bg-[#F4F6FA] py-20 text-[#111] lg:py-32" id="methode">
-      <div className="mx-auto grid w-[90%] max-w-[1600px] grid-cols-1 items-start gap-16 md:w-[85%] lg:grid-cols-12 lg:gap-12">
+      <div className="site-shell grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
           <motion.div
             className="mb-6 flex items-center gap-3"
@@ -837,7 +837,7 @@ const simulatorQuestions = [
 
 function Metrics() {
   return (
-    <section className="mx-auto w-full max-w-[1536px] px-3 py-6 md:px-5 md:py-12" id="metrics">
+    <section className="site-shell py-6 md:py-12" id="metrics">
       <div className="rounded-[1.5rem] border border-[rgba(30,50,90,0.05)] bg-[rgba(30,50,90,0.02)] p-8 md:rounded-[3rem] md:p-16">
         <div className="grid grid-cols-1 divide-y divide-[rgba(30,50,90,0.1)] md:grid-cols-4 md:divide-x md:divide-y-0">
           {metrics.map((item, index) => (
@@ -1091,8 +1091,8 @@ function Features() {
 
 function CTA() {
   return (
-    <section className="flex w-full items-center justify-center bg-[#f0f0f0] p-3 py-8 md:p-5 md:py-12">
-      <div className="relative flex min-h-[32rem] w-full max-w-[1536px] items-center overflow-hidden rounded-[1.5rem] md:rounded-[3rem]">
+    <section className="flex w-full items-center justify-center bg-[#f0f0f0] py-8 md:py-12">
+      <div className="site-shell relative flex min-h-[32rem] items-center overflow-hidden rounded-[1.5rem] md:rounded-[3rem]">
         <img alt="" className="absolute inset-0 h-full w-full object-cover object-[62%_50%]" src={ctaLicenseImage} />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,24,42,0.7),rgba(13,24,42,0.42)_42%,rgba(13,24,42,0.18))]" />
         <div className="relative z-10 max-w-3xl p-8 text-white md:p-16">
@@ -1116,40 +1116,37 @@ function CTA() {
   );
 }
 
-function footerHref(link: string) {
-  const href =
-    link === "Impressum"
-      ? "/impressum.html"
-      : link === "Datenschutz"
-        ? "/datenschutz.html"
-        : link === "Über uns"
-          ? "/ueber-uns"
-          : link === "Koffer"
-            ? "/koffer"
-            : link === "Simulator"
-              ? "/simulator"
-              : link === "Coaching"
-                ? "/coaching"
-                : link === "Fallanalyse"
-                  ? "/#fallanalyse"
-                  : link === "Nachweise"
-                    ? "/#nachweise"
-                    : link === "Training"
-                      ? "/#training"
-                      : "/#kontakt";
-
-  return appHref(href);
-}
+const footerColumns = [
+  {
+    title: "Programme",
+    links: [
+      { label: "Koffer", href: "/koffer" },
+      { label: "Simulator", href: "/simulator" },
+      { label: "Coaching", href: "/coaching" }
+    ]
+  },
+  {
+    title: "Vorbereitung",
+    links: [
+      { label: "Fallanalyse", href: "/#fallanalyse" },
+      { label: "Nachweise", href: "/#nachweise" },
+      { label: "Training", href: "/#training" }
+    ]
+  },
+  {
+    title: "Kontakt",
+    links: [
+      { label: "Über uns", href: "/ueber-uns" },
+      { label: "Erstgespraech", href: "/#kontakt" },
+      { label: "Impressum", href: "/impressum.html" },
+      { label: "Datenschutz", href: "/datenschutz.html" }
+    ]
+  }
+] as const;
 
 function Footer() {
-  const columns = [
-    { title: "Programme", links: ["Koffer", "Simulator", "Coaching"] },
-    { title: "Vorbereitung", links: ["Nachweise", "Fallanalyse", "Training"] },
-    { title: "Kontakt", links: ["Über uns", "Erstgespraech", "Impressum", "Datenschutz"] }
-  ];
-
   return (
-    <footer className="mx-auto w-full max-w-[1536px] border-t border-[rgba(30,50,90,0.12)] px-6 py-12" id="kontakt">
+    <footer className="site-shell border-t border-[rgba(30,50,90,0.12)] px-6 py-12" id="kontakt">
       <div className="grid gap-10 md:grid-cols-[1.2fr_1fr]">
         <div>
           <p className="text-2xl font-normal tracking-tighter text-[#030303]">MPU Safe</p>
@@ -1158,17 +1155,17 @@ function Footer() {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-6">
-          {columns.map((column) => (
+          {footerColumns.map((column) => (
             <div key={column.title}>
               <p className="mb-4 text-sm text-[#030303]">{column.title}</p>
               <div className="grid gap-3">
                 {column.links.map((link) => (
                   <a
                     className="text-sm text-[#030303] transition-opacity hover:opacity-70"
-                    href={footerHref(link)}
-                    key={link}
+                    href={appHref(link.href)}
+                    key={link.label}
                   >
-                    {link}
+                    {link.label}
                   </a>
                 ))}
               </div>
@@ -1190,7 +1187,7 @@ function PageHeader() {
   ];
 
   return (
-    <nav className="mx-auto flex w-full max-w-[1536px] items-center justify-between px-6 py-6 md:px-10">
+    <nav className="site-shell flex items-center justify-between px-6 py-6 md:px-10">
       <a className="text-xl font-medium tracking-tight text-[#030303]" href={appHref("/")}>
         MPU Safe
       </a>
@@ -1216,7 +1213,7 @@ function ProgramHero({ programKey }: { programKey: ProgramKey }) {
   const program = programPages[programKey];
 
   return (
-    <section className="mx-auto w-full max-w-[1536px] px-3 pb-10 md:px-5 md:pb-14">
+    <section className="site-shell pb-10 md:pb-14">
       <div className="grid overflow-hidden rounded-[1.5rem] bg-white shadow-[0_24px_80px_rgba(17,24,39,0.08)] md:rounded-[3rem] lg:grid-cols-[0.92fr_1.08fr]">
         <div className="flex min-h-[560px] flex-col justify-between p-8 md:p-12 lg:p-16">
           <div>
@@ -1284,7 +1281,7 @@ function ProgramOverview({ programKey }: { programKey: ProgramKey }) {
   const program = programPages[programKey];
 
   return (
-    <section className="mx-auto w-full max-w-[1536px] px-3 py-8 md:px-5 md:py-12">
+    <section className="site-shell py-8 md:py-12">
       <div className="rounded-[1.5rem] border border-[rgba(30,50,90,0.06)] bg-[rgba(30,50,90,0.03)] p-6 md:rounded-[3rem] md:p-12">
         <div className="grid gap-4 md:grid-cols-3">
           {program.sections.map((section) => (
@@ -1369,7 +1366,7 @@ function OwnerAboutPage() {
     <main className="min-h-screen bg-[#f0f0f0] text-[#030303]">
       <PageHeader />
 
-      <section className="mx-auto w-full max-w-[1536px] px-3 pb-8 md:px-5 md:pb-12">
+      <section className="site-shell pb-8 md:pb-12">
         <div className="grid overflow-hidden rounded-[1.5rem] bg-white shadow-[0_24px_80px_rgba(17,24,39,0.08)] md:rounded-[3rem] lg:grid-cols-[0.92fr_1.08fr]">
           <div className="flex min-h-[560px] flex-col justify-between p-8 md:p-12 lg:p-16">
             <div>
@@ -1416,7 +1413,7 @@ function OwnerAboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1536px] px-3 py-8 md:px-5 md:py-12">
+      <section className="site-shell py-8 md:py-12">
         <div className="grid overflow-hidden rounded-[1.5rem] bg-white shadow-[0_24px_80px_rgba(17,24,39,0.06)] md:rounded-[3rem] lg:grid-cols-[1.03fr_0.97fr]">
           <div className="flex flex-col justify-between p-8 md:p-12 lg:p-16">
             <div>
@@ -1470,7 +1467,7 @@ function OwnerAboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1536px] px-3 py-8 md:px-5 md:py-12">
+      <section className="site-shell py-8 md:py-12">
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-[1.5rem] bg-[#030303] p-8 text-white md:rounded-[3rem] md:p-12">
             <p className="text-sm font-medium text-white/55">Warum MPU Safe</p>
@@ -1501,7 +1498,7 @@ function OwnerAboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1536px] px-3 py-8 md:px-5 md:py-12">
+      <section className="site-shell py-8 md:py-12">
         <div className="grid overflow-hidden rounded-[1.5rem] bg-white shadow-[0_24px_80px_rgba(17,24,39,0.06)] md:rounded-[3rem] lg:grid-cols-[0.98fr_1.02fr]">
           <div className="relative min-h-[420px] overflow-hidden bg-[#F4F6FA]">
             <img
@@ -1531,7 +1528,7 @@ function OwnerAboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1536px] px-3 py-8 md:px-5 md:py-12">
+      <section className="site-shell py-8 md:py-12">
         <div className="rounded-[1.5rem] bg-[#F4F6FA] p-6 md:rounded-[3rem] md:p-12">
           <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="rounded-[1.5rem] bg-white p-8 shadow-[0_14px_42px_rgba(17,24,39,0.05)] md:rounded-[2rem] md:p-10">
@@ -1571,7 +1568,7 @@ function OwnerAboutPage() {
 
 function LockedSimulatorAccess() {
   return (
-    <section className="mx-auto w-full max-w-[1536px] px-3 pb-12 md:px-5">
+    <section className="site-shell pb-12">
       <div className="grid overflow-hidden rounded-[1.5rem] bg-white shadow-[0_24px_80px_rgba(17,24,39,0.08)] md:rounded-[3rem] lg:grid-cols-[0.96fr_1.04fr]">
         <div className="flex min-h-[520px] flex-col justify-center p-8 md:p-12 lg:p-16">
           <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-[#F4F6FA] px-4 py-2 text-sm font-medium text-[#030303]">
@@ -1692,7 +1689,7 @@ function EnhancedSimulatorQuestionnaire() {
   };
 
   return (
-    <section className="mx-auto w-full max-w-[1536px] px-3 pb-16 md:px-5">
+    <section className="site-shell pb-16">
       {!showResult ? (
         <div className="grid min-w-0 overflow-hidden rounded-[1.5rem] bg-white shadow-[0_24px_80px_rgba(17,24,39,0.08)] md:rounded-[3rem] lg:grid-cols-[1.05fr_0.95fr]">
           <div className="min-w-0 p-6 md:p-10 lg:p-14">
