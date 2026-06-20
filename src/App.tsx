@@ -568,7 +568,7 @@ function MethodSection() {
 }
 
 const metrics = [
-  { value: "29,99 €", label: "Digitaler Einstieg" },
+  { value: "19,99 €", label: "Digitaler Einstieg" },
   { value: "69 €", label: "Simulator Zugang" },
   { value: "3", label: "Vorbereitungswege" },
   { value: "1:1", label: "Persoenliches Coaching" }
@@ -621,7 +621,7 @@ const programPages = {
     eyebrow: "MPU Erste-Hilfe-Koffer",
     title: "Ordnung für deinen MPU-Start.",
     copy: "Der schnelle Einstieg, wenn du Fristen, Nachweise und nächste Schritte endlich sortiert haben willst.",
-    price: "29,99 €",
+    price: "19,99 €",
     note: "Digitaler Einstieg",
     image: kofferImage,
     checkout: checkoutLinks.koffer,
@@ -679,7 +679,7 @@ const programPages = {
     note: "Persönliche Begleitung",
     image: coachingImage,
     checkout: checkoutLinks.coaching,
-    primaryLabel: "Coaching anfragen",
+    primaryLabel: "Coaching buchen",
     secondaryLabel: "Methode ansehen",
     secondaryHref: "/#methode",
     points: ["Fallanalyse im Gespräch", "Training mit realistischen Situationen", "Begleitung bis zum Termin"],
@@ -701,6 +701,12 @@ const programPages = {
 } as const;
 
 type ProgramKey = keyof typeof programPages;
+
+const checkoutNotices: Record<ProgramKey, string> = {
+  koffer: "Zahlung, Rechnung und digitale Auslieferung laufen sicher über Digistore24.",
+  simulator: "Zahlung, Rechnung und Zugang laufen über Digistore24. Die finale Simulator-Freischaltung wird nach dem Kauf bereitgestellt.",
+  coaching: "Buchung und Rechnung laufen über Digistore24. Sensible Unterlagen bitte erst nach persönlicher Abstimmung übermitteln."
+};
 
 const simulatorQuestions = [
   {
@@ -872,7 +878,7 @@ function PricingPackages() {
               <div className="c2-dot-br" />
               <h3 className="c2-card-title">MPU Erste-Hilfe-Koffer</h3>
               <div className="c2-price">
-                <span className="c2-price-amount">29,99 €</span>
+                <span className="c2-price-amount">19,99 €</span>
                 <span>einmalig</span>
               </div>
               <ul className="c2-list bordered">
@@ -1258,7 +1264,7 @@ function ProgramHero({ programKey }: { programKey: ProgramKey }) {
             <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
               <a
                 className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]"
-                href={programKey === "coaching" ? appHref("/#kontakt") : program.checkout}
+                href={program.checkout}
               >
                 {program.primaryLabel}
                 <ArrowRight className="h-5 w-5" />
@@ -1270,9 +1276,9 @@ function ProgramHero({ programKey }: { programKey: ProgramKey }) {
                 {program.secondaryLabel}
               </a>
             </div>
-            {programKey === "koffer" ? (
+            {checkoutNotices[programKey] ? (
               <p className="md:col-span-2 text-sm font-medium leading-relaxed text-gray-500 md:text-right">
-                Zahlung, Rechnung und digitale Auslieferung laufen sicher über Digistore24.
+                {checkoutNotices[programKey]}
               </p>
             ) : null}
           </div>
