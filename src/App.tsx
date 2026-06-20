@@ -576,6 +576,7 @@ const metrics = [
 
 const processSteps = [
   {
+    id: "fallanalyse",
     number: "01",
     title: "Fallanalyse",
     copy: "Gemeinsam analysieren wir Ihren Fall, klären die Ursachen und definieren die Ziele.",
@@ -584,6 +585,7 @@ const processSteps = [
     alt: "Fallanalyse-Dokument auf einem Klemmbrett"
   },
   {
+    id: "nachweise",
     number: "02",
     title: "Nachweise",
     copy: "Wir planen alle erforderlichen Nachweise individuell, realistisch und fristgerecht.",
@@ -592,6 +594,7 @@ const processSteps = [
     alt: "Nachweisplan auf einem Klemmbrett"
   },
   {
+    id: "training",
     number: "03",
     title: "Training",
     copy: "Im Gesprächstraining üben wir realistische Situationen - sicher und souverän.",
@@ -600,6 +603,7 @@ const processSteps = [
     alt: "Ruhiger Raum fuer Gespraechstraining"
   },
   {
+    id: "termin",
     number: "04",
     title: "Termin",
     copy: "Wir begleiten Sie bis zum MPU-Termin und stehen an Ihrer Seite.",
@@ -1042,6 +1046,7 @@ function Features() {
               <article
                 className={step.final ? "process-card process-card-final reveal" : "process-card reveal"}
                 data-process-step={index}
+                id={step.id}
               >
                 {step.final ? <img className="route-doodle" src={routeArrowImage} alt="" aria-hidden="true" /> : null}
                 <div className="process-copy">
@@ -1149,9 +1154,9 @@ function CTA() {
 function footerHref(link: string) {
   const href =
     link === "Impressum"
-      ? "impressum.html"
+      ? "/impressum.html"
       : link === "Datenschutz"
-        ? "datenschutz.html"
+        ? "/datenschutz.html"
         : link === "Über uns"
           ? "/ueber-uns"
           : link === "Koffer"
@@ -1160,7 +1165,13 @@ function footerHref(link: string) {
               ? "/simulator"
               : link === "Coaching"
                 ? "/coaching"
-                : "/#kontakt";
+                : link === "Fallanalyse"
+                  ? "/#fallanalyse"
+                  : link === "Nachweise"
+                    ? "/#nachweise"
+                    : link === "Training"
+                      ? "/#training"
+                      : "/#kontakt";
 
   return appHref(href);
 }
