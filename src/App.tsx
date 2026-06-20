@@ -679,7 +679,7 @@ const programPages = {
     eyebrow: "1:1 MPU Coaching",
     title: "Persönlicher Fahrplan für deinen Fall.",
     copy: "Für alle, die nicht nur Material wollen, sondern eine klare Einordnung und persönliche Begleitung bis zum MPU-Gespräch.",
-    price: "900 €",
+    price: "ab 900 €",
     note: "Persönliche Begleitung",
     image: coachingImage,
     checkout: checkoutLinks.coaching,
@@ -861,12 +861,6 @@ function Metrics() {
 }
 
 function PricingPackages() {
-  const [simulatorMode, setSimulatorMode] = useState<"basis" | "plus">("basis");
-  const [withReview, setWithReview] = useState(false);
-  const simulatorBase = simulatorMode === "basis" ? 69 : 149;
-  const simulatorPrice = simulatorBase + (withReview ? 80 : 0);
-  const simulatorNote = withReview ? "einmalig + Review" : "einmalig";
-
   return (
     <section className="c2-section" id="programme">
       <div className="c2-container">
@@ -905,38 +899,10 @@ function PricingPackages() {
               <div className="c2-dot-br" />
               <h3 className="c2-card-title">MPU Safe Simulator</h3>
               <div className="c2-price">
-                <span className="c2-price-amount">{simulatorPrice.toLocaleString("de-DE")} €</span>
-                <span>{simulatorNote}</span>
+                <span className="c2-price-amount">69 €</span>
+                <span>einmalig</span>
               </div>
-              <div aria-label="Simulator Umfang" className="c2-toggle" role="tablist">
-                {[
-                  { value: "basis", label: "Basis" },
-                  { value: "plus", label: "Plus" }
-                ].map((option) => (
-                  <button
-                    aria-selected={simulatorMode === option.value}
-                    className={simulatorMode === option.value ? "active" : ""}
-                    key={option.value}
-                    onClick={() => setSimulatorMode(option.value as "basis" | "plus")}
-                    role="tab"
-                    type="button"
-                  >
-                    {option.label}
-                  </button>
-                ))}
-              </div>
-              <button
-                aria-checked={withReview}
-                aria-label="Review hinzubuchen"
-                className={withReview ? "c2-framer on" : "c2-framer"}
-                onClick={() => setWithReview((value) => !value)}
-                role="switch"
-                type="button"
-              >
-                <span className="c2-switch" />
-                Review hinzubuchen
-              </button>
-              <ul className="c2-list bordered-top">
+              <ul className="c2-list bordered">
                 <li>Realistische MPU-Fragen</li>
                 <li>Reflexion statt Auswendiglernen</li>
                 <li>Digitale Vorbereitung im Browser</li>
@@ -953,8 +919,7 @@ function PricingPackages() {
         <article className="c2-card c2-bottom-card" id="coaching">
           <h3 className="c2-card-title">1:1 MPU Coaching</h3>
           <div className="c2-price c2-coaching-price">
-            <span className="c2-price-amount">900 €</span>
-            <span>einmalig</span>
+            <span className="c2-price-amount">ab 900 €</span>
           </div>
           <p className="c2-bottom-desc">
             Du brauchst einen persoenlichen Fahrplan?
