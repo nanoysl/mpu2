@@ -25,18 +25,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build public site artifact
         run: |
           set -eu
-          rm -rf dist
-          mkdir -p dist
-
-          cp index.html impressum.html datenschutz.html widerruf.html agb.html dist/
-          cp styles.css script.js dist/
-          cp -R assets dist/assets
+          npm run build
 
           if [ -f .nojekyll ]; then
             cp .nojekyll dist/.nojekyll
