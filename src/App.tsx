@@ -625,7 +625,7 @@ const programPages = {
     note: "Digitaler Einstieg",
     image: kofferImage,
     checkout: checkoutLinks.koffer,
-    primaryLabel: "Koffer ansehen",
+    primaryLabel: "Koffer kaufen",
     secondaryLabel: "Ablauf prüfen",
     secondaryHref: "/#ablauf",
     points: ["PDF-Guide für den Sofortstart", "Checklisten für Fristen und Nachweise", "Audio-Mentoring zur Orientierung"],
@@ -1270,6 +1270,11 @@ function ProgramHero({ programKey }: { programKey: ProgramKey }) {
                 {program.secondaryLabel}
               </a>
             </div>
+            {programKey === "koffer" ? (
+              <p className="md:col-span-2 text-sm font-medium leading-relaxed text-gray-500 md:text-right">
+                Zahlung, Rechnung und digitale Auslieferung laufen sicher über Digistore24.
+              </p>
+            ) : null}
           </div>
         </div>
 
