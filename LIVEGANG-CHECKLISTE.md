@@ -31,6 +31,24 @@ Diese Checkliste sammelt die Daten, die vor dem technischen Livegang final vom B
 - [ ] Finale Liefer- und Zugriffshinweise bestaetigen
 - [ ] Finale externe Checkout-Links bereitstellen
 
+## Domain mpu-safe.com
+
+- [ ] GitHub Pages Custom Domain auf `mpu-safe.com` setzen
+- [ ] GoDaddy A-Record `@` von WebsiteBuilder entfernen
+- [ ] GoDaddy A-Records fuer `@` auf GitHub Pages setzen:
+  - `185.199.108.153`
+  - `185.199.109.153`
+  - `185.199.110.153`
+  - `185.199.111.153`
+- [ ] GoDaddy CNAME `www` auf `nanoysl.github.io` setzen
+- [ ] Nach DNS-Aktualisierung in GitHub Pages `Enforce HTTPS` aktivieren
+- [ ] Digistore24 Verkaufsseiten aktualisieren:
+  - Koffer: `https://mpu-safe.com/koffer`
+  - Simulator: `https://mpu-safe.com/simulator`
+  - Coaching: `https://mpu-safe.com/coaching`
+- [ ] Digistore24 Dankeseite fuer Simulator setzen:
+  - `https://mpu-safe.com/?route=simulator-zugang&access=paid`
+
 ## Rechtstexte und Freigabe
 
 - [ ] Finale Rechtstexte vorhanden: Ja / Nein

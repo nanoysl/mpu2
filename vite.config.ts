@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/mpu2/" : "/",
+  base: "/",
   plugins: [react()],
   server: {
     allowedHosts: [".loca.lt"],
