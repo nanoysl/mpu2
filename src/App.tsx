@@ -913,8 +913,8 @@ function PricingPackages() {
               <p className="c2-desc">
                 Perfekt, wenn du schnell Ordnung in deinen Fall bringen und die naechsten Schritte klar sehen willst.
               </p>
-              <a className="c2-btn" data-package="MPU Erste-Hilfe-Koffer" href={checkoutLinks.koffer}>
-                Koffer kaufen
+              <a className="c2-btn" data-package="MPU Erste-Hilfe-Koffer" href={appHref("/koffer")}>
+                Mehr erfahren
               </a>
               <img alt="" className="c2-product" loading="lazy" src={kofferImage} />
             </article>
@@ -933,8 +933,8 @@ function PricingPackages() {
                 <li>Digitale Vorbereitung im Browser</li>
                 <li>Zugang nach externer Zahlung</li>
               </ul>
-              <a className="c2-btn" data-package="MPU Safe Simulator" href={checkoutLinks.simulator}>
-                Simulator kaufen
+              <a className="c2-btn" data-package="MPU Safe Simulator" href={appHref("/simulator")}>
+                Mehr erfahren
               </a>
               <img alt="" className="c2-product" loading="lazy" src={simulatorImage} />
             </article>
@@ -951,8 +951,8 @@ function PricingPackages() {
             <br />
             Dann klaeren wir Fallanalyse, Nachweise und Gespraechstraining individuell im Erstgespraech.
           </p>
-          <a className="c2-btn" data-package="1:1 MPU Coaching" href={checkoutLinks.coaching}>
-            Coaching buchen
+          <a className="c2-btn" data-package="1:1 MPU Coaching" href={appHref("/coaching")}>
+            Mehr erfahren
           </a>
           <div
             aria-hidden="true"
