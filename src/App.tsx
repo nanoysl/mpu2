@@ -16,7 +16,6 @@ import {
   Phone,
   Plus,
   Route,
-  RotateCcw,
   ShieldCheck,
   Sparkles,
   Target,
@@ -1905,12 +1904,6 @@ function EnhancedSimulatorQuestionnaire() {
     setCurrentQuestion((value) => value + 1);
   };
 
-  const resetSimulator = () => {
-    setAnswers(Array(totalQuestions).fill(null));
-    setCurrentQuestion(0);
-    setShowResult(false);
-  };
-
   return (
     <section className="site-shell pb-16">
       {!showResult ? (
@@ -2133,14 +2126,6 @@ function EnhancedSimulatorQuestionnaire() {
                   <Mail className="h-4 w-4" />
                   Allgemeine E-Mail öffnen
                 </a>
-                <button
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F4F6FA] px-7 py-4 text-[15px] font-medium text-[#030303] transition-colors hover:bg-[#e8ebf1]"
-                  onClick={resetSimulator}
-                  type="button"
-                >
-                  <RotateCcw className="h-4 w-4" />
-                  Neu starten
-                </button>
               </div>
             </div>
 
