@@ -24,18 +24,18 @@ import {
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
-import aboutCoachingBoardImage from "../assets/generated/v3/about-coaching-board.png";
-import aboutOnlineTrainingImage from "../assets/generated/v3/about-online-training.png";
-import ctaLicenseImage from "../assets/generated/v3/cta-license-handoff.png";
-import heroMpuPlanImage from "../assets/generated/v3/hero-mpu-plan.png";
-import coachingImage from "../assets/generated/v3/coaching-1zu1.png";
-import kofferImage from "../assets/generated/v3/erste-hilfe-koffer.png";
-import simulatorImage from "../assets/generated/v3/mpu-simulator.png";
+import aboutCoachingBoardImage from "../assets/optimized/site/about-coaching-board.jpg";
+import aboutOnlineTrainingImage from "../assets/optimized/site/about-online-training.jpg";
+import ctaLicenseImage from "../assets/optimized/site/cta-license-handoff.jpg";
+import heroMpuPlanImage from "../assets/optimized/site/hero-mpu-plan.jpg";
+import coachingImage from "../assets/optimized/site/coaching-1zu1.jpg";
+import kofferImage from "../assets/optimized/site/erste-hilfe-koffer.jpg";
+import simulatorImage from "../assets/optimized/site/mpu-simulator.jpg";
 import routeArrowImage from "../assets/generated/v2/route-arrow-white.png";
-import processFallanalyseImage from "../assets/generated/v4/process-fallanalyse.png";
-import processNachweiseImage from "../assets/generated/v4/process-nachweise.png";
-import processTrainingImage from "../assets/generated/v4/process-training.png";
-import processTerminImage from "../assets/generated/v4/process-termin.png";
+import processFallanalyseImage from "../assets/optimized/site/process-fallanalyse.jpg";
+import processNachweiseImage from "../assets/optimized/site/process-nachweise.jpg";
+import processTrainingImage from "../assets/optimized/site/process-training.jpg";
+import processTerminImage from "../assets/optimized/site/process-termin.jpg";
 
 const appBasePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
