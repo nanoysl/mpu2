@@ -1176,7 +1176,9 @@ const footerColumns = [
       { label: "Über uns", href: "/ueber-uns" },
       { label: "Erstgespraech", href: "/kontakt.html" },
       { label: "Impressum", href: "/impressum.html" },
-      { label: "Datenschutz", href: "/datenschutz.html" }
+      { label: "Datenschutz", href: "/datenschutz.html" },
+      { label: "AGB", href: "/agb.html" },
+      { label: "Widerruf", href: "/widerruf.html" }
     ]
   }
 ] as const;
