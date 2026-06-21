@@ -1144,6 +1144,7 @@ function CTA() {
 const footerColumns = [
   {
     title: "Programme",
+    href: "/#programme",
     links: [
       { label: "Koffer", href: "/koffer" },
       { label: "Simulator", href: "/simulator" },
@@ -1152,6 +1153,7 @@ const footerColumns = [
   },
   {
     title: "Vorbereitung",
+    href: "/#methode",
     links: [
       { label: "Fallanalyse", href: "/#fallanalyse" },
       { label: "Nachweise", href: "/#nachweise" },
@@ -1160,6 +1162,7 @@ const footerColumns = [
   },
   {
     title: "Kontakt",
+    href: "/#kontakt",
     links: [
       { label: "Über uns", href: "/ueber-uns" },
       { label: "Erstgespraech", href: "/#kontakt" },
@@ -1182,7 +1185,12 @@ function Footer() {
         <div className="grid grid-cols-3 gap-6">
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <p className="mb-4 text-sm text-[#030303]">{column.title}</p>
+              <a
+                className="mb-4 block text-sm text-[#030303] transition-opacity hover:opacity-70"
+                href={appHref(column.href)}
+              >
+                {column.title}
+              </a>
               <div className="grid gap-3">
                 {column.links.map((link) => (
                   <a
