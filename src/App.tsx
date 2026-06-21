@@ -669,8 +669,8 @@ const programPages = {
     image: kofferImage,
     checkout: checkoutLinks.koffer,
     primaryLabel: "Koffer kaufen",
-    secondaryLabel: "Ablauf prüfen",
-    secondaryHref: "/#ablauf",
+    secondaryLabel: "Inhalte ansehen",
+    secondaryHref: "#angebot-details",
     points: ["PDF-Guide für den Sofortstart", "Checklisten für Fristen und Nachweise", "Audio-Mentoring zur Orientierung", "19,99 € werden beim Coaching angerechnet"],
     sections: [
       {
@@ -697,7 +697,7 @@ const programPages = {
     checkout: checkoutLinks.simulator,
     primaryLabel: "Simulator kaufen",
     secondaryLabel: "Ablauf ansehen",
-    secondaryHref: "/#ablauf",
+    secondaryHref: "#angebot-details",
     points: ["15 Reflexionsfragen", "Risikoprofil nach Abschluss", "Zugang nach externer Zahlung", "69 € werden beim Coaching angerechnet"],
     sections: [
       {
@@ -724,7 +724,7 @@ const programPages = {
     checkout: checkoutLinks.coaching,
     primaryLabel: "Coaching buchen",
     secondaryLabel: "Methode ansehen",
-    secondaryHref: "/#methode",
+    secondaryHref: "#angebot-details",
     points: ["Fallanalyse im Gespräch", "Training mit realistischen Situationen", "Begleitung bis zum Termin", "Vorabkäufe werden abgezogen"],
     sections: [
       {
@@ -1338,7 +1338,7 @@ function ProgramOverview({ programKey }: { programKey: ProgramKey }) {
   const program = programPages[programKey];
 
   return (
-    <section className="site-shell py-8 md:py-12">
+    <section className="site-shell scroll-mt-6 py-8 md:py-12" id="angebot-details">
       <div className="rounded-[1.5rem] border border-[rgba(30,50,90,0.06)] bg-[rgba(30,50,90,0.03)] p-6 md:rounded-[3rem] md:p-12">
         <div className="grid gap-4 md:grid-cols-3">
           {program.sections.map((section) => (
