@@ -1875,18 +1875,40 @@ function EnhancedSimulatorQuestionnaire() {
     .filter((item) => item.risk !== null)
     .sort((a, b) => (b.risk ?? 0) - (a.risk ?? 0))
     .slice(0, 4);
+  const prioritySummary = priorityAreas.length
+    ? priorityAreas.map((item, index) => `${index + 1}. ${item.topic}: ${item.risk}% Risiko - ${item.note}`).join("\n")
+    : "Keine Risikobereiche ausgewertet.";
+  const answerProtocol = answerSummary
+    .map((item, index) => [
+      `${index + 1}. ${item.topic}`,
+      `Frage: ${item.question}`,
+      `Antwort: ${item.answer}`,
+      `Risiko: ${item.risk ?? 0}%`,
+      `Einordnung: ${item.note || "Keine Einordnung vorhanden."}`
+    ].join("\n"))
+    .join("\n\n");
   const emailBody = [
     "Hallo MPU Safe Team,",
     "",
-    "ich habe eine allgemeine Anfrage zur MPU-Vorbereitung.",
+    "ich habe den MPU Safe Simulator abgeschlossen und möchte meine Auswertung besprechen.",
     "",
-    "Ich sende über diesen Weg keine Gutachten, Abstinenznachweise, medizinischen Unterlagen, Strafakten oder vollständigen Akten.",
-    "Für eine Fallanalyse stimmen wir bei Bedarf einen geeigneten sicheren Übermittlungsweg ab.",
+    "Zusammenfassung:",
+    `- Simulations-Risiko: ${liveRiskScore}%`,
+    `- Stabilität: ${stabilityScore}%`,
+    `- Beantwortete Fragen: ${answeredCount}/${totalQuestions}`,
+    "",
+    "Auffälligste Bereiche:",
+    prioritySummary,
+    "",
+    "Antwortprotokoll:",
+    answerProtocol,
+    "",
+    "Hinweis: Diese E-Mail enthält meine Simulator-Auswertung. Ich sende keine Gutachten, Abstinenznachweise, medizinischen Unterlagen, Strafakten oder vollständigen Akten per normaler E-Mail. Für weitere sensible Unterlagen stimmen wir bei Bedarf einen geeigneten sicheren Übermittlungsweg ab.",
     "",
     "Viele Grüße"
   ].join("\n\n");
   const mailtoHref = `mailto:${contactInfo.email}?subject=${encodeURIComponent(
-    "Allgemeine Anfrage zur MPU-Vorbereitung"
+    "MPU Safe Simulator-Auswertung"
   )}&body=${encodeURIComponent(emailBody)}`;
 
   const chooseAnswer = (answerIndex: number) => {
@@ -2110,7 +2132,7 @@ function EnhancedSimulatorQuestionnaire() {
               <div className="mt-9 max-w-2xl rounded-[24px] bg-[#F4F6FA] p-5">
                 <p className="text-sm font-semibold text-[#030303]">Hinweis zur E-Mail</p>
                 <p className="mt-2 text-[15px] leading-[1.65] text-gray-600">
-                  Bitte senden Sie keine Gutachten, Abstinenznachweise, medizinischen Unterlagen, Strafakten oder vollständigen Akten per normaler E-Mail. Für eine Fallanalyse stimmen wir bei Bedarf einen geeigneten sicheren Übermittlungsweg ab.
+                  Die E-Mail öffnet sich mit deiner Simulator-Auswertung und deinem Antwortprotokoll. Sie wird erst verschickt, wenn du sie in deinem E-Mail-Programm selbst sendest. Bitte hänge keine Gutachten, Abstinenznachweise, medizinischen Unterlagen, Strafakten oder vollständigen Akten an.
                 </p>
               </div>
 
@@ -2124,7 +2146,7 @@ function EnhancedSimulatorQuestionnaire() {
                   href={mailtoHref}
                 >
                   <Mail className="h-4 w-4" />
-                  Allgemeine E-Mail öffnen
+                  Auswertung per E-Mail öffnen
                 </a>
               </div>
             </div>
