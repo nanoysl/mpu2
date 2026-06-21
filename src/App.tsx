@@ -665,7 +665,7 @@ const programPages = {
     primaryLabel: "Koffer kaufen",
     secondaryLabel: "Ablauf prüfen",
     secondaryHref: "/#ablauf",
-    points: ["PDF-Guide für den Sofortstart", "Checklisten für Fristen und Nachweise", "Audio-Mentoring zur Orientierung"],
+    points: ["PDF-Guide für den Sofortstart", "Checklisten für Fristen und Nachweise", "Audio-Mentoring zur Orientierung", "19,99 € werden beim Coaching angerechnet"],
     sections: [
       {
         title: "Fallanalyse",
@@ -692,7 +692,7 @@ const programPages = {
     primaryLabel: "Simulator kaufen",
     secondaryLabel: "Zugang ansehen",
     secondaryHref: "/simulator-zugang",
-    points: ["15 Reflexionsfragen", "Risikoprofil nach Abschluss", "Zugang nach externer Zahlung"],
+    points: ["15 Reflexionsfragen", "Risikoprofil nach Abschluss", "Zugang nach externer Zahlung", "69 € werden beim Coaching angerechnet"],
     sections: [
       {
         title: "Fragebogen",
@@ -719,7 +719,7 @@ const programPages = {
     primaryLabel: "Coaching buchen",
     secondaryLabel: "Methode ansehen",
     secondaryHref: "/#methode",
-    points: ["Fallanalyse im Gespräch", "Training mit realistischen Situationen", "Begleitung bis zum Termin"],
+    points: ["Fallanalyse im Gespräch", "Training mit realistischen Situationen", "Begleitung bis zum Termin", "Vorabkäufe werden abgezogen"],
     sections: [
       {
         title: "Analyse",
@@ -740,10 +740,12 @@ const programPages = {
 type ProgramKey = keyof typeof programPages;
 
 const checkoutNotices: Record<ProgramKey, string> = {
-  koffer: "Zahlung, Rechnung und digitale Auslieferung laufen sicher über Digistore24.",
-  simulator: "Zahlung, Rechnung und Zugang laufen über Digistore24. Nach dem Kauf leitet Digistore24 direkt zur freigeschalteten 15-Fragen-Seite weiter.",
-  coaching: "Buchung und Rechnung laufen über Digistore24. Sensible Unterlagen bitte erst nach persönlicher Abstimmung übermitteln."
+  koffer: "Zahlung, Rechnung und digitale Auslieferung laufen über Digistore24. Der Kaufbetrag wird vollständig auf ein späteres 1:1 Coaching angerechnet.",
+  simulator: "Zahlung, Rechnung und Zugang laufen über Digistore24. Der Kaufbetrag wird vollständig auf ein späteres 1:1 Coaching angerechnet.",
+  coaching: "Buchung und Rechnung laufen über Digistore24. Bereits gekaufte MPU Safe Produkte werden vom Coaching-Preis abgezogen."
 };
+
+const coachingCreditText = "Alle gekauften MPU Safe Programme werden auf ein späteres 1:1 Coaching angerechnet.";
 
 const simulatorQuestions = [
   {
@@ -916,7 +918,7 @@ function PricingPackages() {
                 <li>PDF-Guide für den Sofortstart</li>
                 <li>Checklisten für Fristen und Nachweise</li>
                 <li>Audio-Mentoring zur Orientierung</li>
-                <li>Kein öffentlicher Download im Repo</li>
+                <li>19,99 € werden beim Coaching angerechnet</li>
               </ul>
               <p className="c2-desc">
                 Perfekt, wenn du schnell Ordnung in deinen Fall bringen und die nächsten Schritte klar sehen willst.
@@ -939,7 +941,7 @@ function PricingPackages() {
                 <li>Realistische MPU-Fragen</li>
                 <li>Reflexion statt Auswendiglernen</li>
                 <li>Digitale Vorbereitung im Browser</li>
-                <li>Zugang nach externer Zahlung</li>
+                <li>69 € werden beim Coaching angerechnet</li>
               </ul>
               <a className="c2-btn" data-package="MPU Safe Simulator" href={appHref("/simulator")}>
                 Mehr erfahren
@@ -957,7 +959,7 @@ function PricingPackages() {
           <p className="c2-bottom-desc">
             Du brauchst einen persönlichen Fahrplan?
             <br />
-            Dann klären wir Fallanalyse, Nachweise und Gesprächstraining individuell im Erstgespräch.
+            Bereits gekaufte Programme ziehen wir vom Coaching-Preis ab.
           </p>
           <a className="c2-btn" data-package="1:1 MPU Coaching" href={appHref("/coaching")}>
             Mehr erfahren
@@ -1314,6 +1316,11 @@ function ProgramHero({ programKey }: { programKey: ProgramKey }) {
                 </div>
               ))}
             </div>
+            <p className="mt-5 rounded-[18px] bg-[#fff2ec] px-4 py-3 text-sm font-semibold leading-relaxed text-[#030303]">
+              {programKey === "coaching"
+                ? "Koffer und Simulator schon gekauft? Die Kaufbeträge werden vom Coaching-Preis abgezogen."
+                : coachingCreditText}
+            </p>
           </div>
         </div>
       </div>
