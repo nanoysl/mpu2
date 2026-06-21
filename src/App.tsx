@@ -13,6 +13,7 @@ import {
   Mail,
   MessagesSquare,
   Minus,
+  Phone,
   Plus,
   Route,
   RotateCcw,
@@ -46,6 +47,14 @@ function appHref(href: string) {
   return `${appBasePath}${href}`;
 }
 
+const contactInfo = {
+  email: "abalikci18@gmail.com",
+  phoneLabel: "05971 9782341",
+  phoneHref: "tel:+4959719782341",
+  mobileLabel: "0176 72810840",
+  mobileHref: "tel:+4917672810840"
+} as const;
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 }
@@ -70,7 +79,7 @@ function Navbar() {
     { label: "Preise", href: "/#metrics", hasChevron: true },
     { label: "Ablauf", href: "/#ablauf" },
     { label: "Über uns", href: "/ueber-uns" },
-    { label: "Kontakt", href: "/#kontakt" }
+    { label: "Kontakt", href: "/kontakt.html" }
   ];
 
   return (
@@ -94,7 +103,7 @@ function Navbar() {
       <div className="flex flex-1 justify-end">
         <motion.a
           className="group flex items-center gap-2 rounded-full bg-[#F26522] py-1.5 pl-2 pr-4 text-white transition-colors hover:bg-[#e05a1a] md:gap-3 md:py-2 md:pr-6"
-          href={appHref("/#kontakt")}
+          href={appHref("/kontakt.html")}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -176,7 +185,7 @@ function BottomRightCorner() {
         <p className="text-[16px] font-normal text-[#030303] md:text-[20px]">Erstgespraech</p>
         <a
           className="flex items-center gap-1 text-[#030303] transition-opacity hover:opacity-70"
-          href={appHref("/#kontakt")}
+          href={appHref("/kontakt.html")}
         >
           <span className="text-[12px] font-normal md:text-[15px]">Kontakt</span>
           <ChevronRight className="h-4 w-4" />
@@ -253,7 +262,7 @@ function AboutSection() {
           <div className="mb-8">
             <a
               className="group flex w-fit items-center gap-3 rounded-full bg-[#F26522] py-2 pl-5 pr-2 text-[13px] font-medium text-white hover:bg-[#e05a1a] sm:pl-6 sm:text-[14px]"
-              href={appHref("/#kontakt")}
+              href={appHref("/kontakt.html")}
             >
               <span className="h-[20px] overflow-hidden">
                 <span className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-1/2">
@@ -304,7 +313,7 @@ function AboutSection() {
             </p>
             <a
               className="group flex w-fit items-center gap-3 rounded-full bg-[#F26522] py-2 pl-5 pr-2 text-[13px] font-medium text-white hover:bg-[#e05a1a] sm:pl-6 sm:text-[14px]"
-              href={appHref("/#kontakt")}
+              href={appHref("/kontakt.html")}
             >
               <span className="h-[20px] overflow-hidden">
                 <span className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-1/2">
@@ -623,7 +632,7 @@ const checkoutLinks = {
 const simulatorAccessStorageKey = "mpu-safe-simulator-access";
 const simulatorAccessToken = "paid";
 
-const knownAppRoutes = ["/koffer", "/simulator", "/coaching", "/simulator-zugang", "/ueber-uns"] as const;
+const knownAppRoutes = ["/koffer", "/simulator", "/coaching", "/kontakt", "/simulator-zugang", "/ueber-uns"] as const;
 
 function hasSimulatorAccessParam(search: string) {
   return new URLSearchParams(search).get("access") === simulatorAccessToken;
@@ -1131,7 +1140,7 @@ function CTA() {
                 <ArrowRight className="h-5 w-5 text-[#F26522]" />
               </span>
             </a>
-            <a className="inline-flex items-center justify-center rounded-full bg-[#F26522] px-7 py-3 text-base font-normal text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/#kontakt")}>
+            <a className="inline-flex items-center justify-center rounded-full bg-[#F26522] px-7 py-3 text-base font-normal text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/kontakt.html")}>
               Kontakt
             </a>
           </div>
@@ -1162,10 +1171,10 @@ const footerColumns = [
   },
   {
     title: "Kontakt",
-    href: "/#kontakt",
+    href: "/kontakt.html",
     links: [
       { label: "Über uns", href: "/ueber-uns" },
-      { label: "Erstgespraech", href: "/#kontakt" },
+      { label: "Erstgespraech", href: "/kontakt.html" },
       { label: "Impressum", href: "/impressum.html" },
       { label: "Datenschutz", href: "/datenschutz.html" }
     ]
@@ -1216,7 +1225,8 @@ function PageHeader() {
     { label: "Über uns", href: "/ueber-uns" },
     { label: "Koffer", href: "/koffer" },
     { label: "Simulator", href: "/simulator" },
-    { label: "Coaching", href: "/coaching" }
+    { label: "Coaching", href: "/coaching" },
+    { label: "Kontakt", href: "/kontakt.html" }
   ];
 
   return (
@@ -1233,7 +1243,7 @@ function PageHeader() {
       </div>
       <a
         className="inline-flex items-center gap-2 rounded-full bg-[#F26522] py-2 pl-4 pr-5 text-sm font-medium text-white transition-colors hover:bg-[#e05a1a]"
-        href={appHref("/#kontakt")}
+        href={appHref("/kontakt.html")}
       >
         <ArrowUpRight className="h-4 w-4" />
         Kontakt
@@ -1347,6 +1357,184 @@ function ProductPage({ programKey }: { programKey: ProgramKey }) {
   );
 }
 
+function ContactPage() {
+  useEffect(() => {
+    document.title = "Kontakt | MPU Safe";
+  }, []);
+
+  const emailBody = [
+    "Hallo MPU Safe Team,",
+    "",
+    "ich habe eine allgemeine Anfrage zur MPU-Vorbereitung.",
+    "",
+    "Mein Anliegen ist:",
+    "",
+    "Bitte melden Sie sich bei mir zurück.",
+    "",
+    "Viele Grüße"
+  ].join("\n");
+  const mailtoHref = `mailto:${contactInfo.email}?subject=${encodeURIComponent(
+    "Allgemeine Anfrage zur MPU-Vorbereitung"
+  )}&body=${encodeURIComponent(emailBody)}`;
+  const contactMethods = [
+    {
+      icon: Mail,
+      title: "E-Mail",
+      value: contactInfo.email,
+      copy: "Für allgemeine Fragen, Terminabstimmung und den ersten Kontakt.",
+      href: mailtoHref,
+      action: "E-Mail öffnen"
+    },
+    {
+      icon: Phone,
+      title: "Telefon",
+      value: contactInfo.phoneLabel,
+      copy: "Für kurze Rückfragen und eine direkte Abstimmung.",
+      href: contactInfo.phoneHref,
+      action: "Anrufen"
+    },
+    {
+      icon: Phone,
+      title: "Mobil",
+      value: contactInfo.mobileLabel,
+      copy: "Falls du lieber mobil Kontakt aufnehmen möchtest.",
+      href: contactInfo.mobileHref,
+      action: "Mobil anrufen"
+    }
+  ];
+  const firstMessagePoints = [
+    "Name und gewünschter Kontaktweg",
+    "Ob es um Koffer, Simulator oder Coaching geht",
+    "Wann ein Rückruf gut passen würde"
+  ];
+  const sensitiveNotes = [
+    "Keine vollständigen Akten per normaler E-Mail senden.",
+    "Keine Gutachten, Laborwerte oder medizinischen Unterlagen anhängen.",
+    "Für sensible Unterlagen wird bei Bedarf ein geeigneter Weg abgestimmt."
+  ];
+
+  return (
+    <main className="min-h-screen bg-[#f0f0f0] text-[#030303]">
+      <PageHeader />
+
+      <section className="site-shell pb-8 md:pb-12">
+        <div className="grid overflow-hidden rounded-[1.5rem] bg-white shadow-[0_24px_80px_rgba(17,24,39,0.08)] md:rounded-[3rem] lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="flex min-h-[560px] flex-col justify-between p-8 md:p-12 lg:p-16">
+            <div>
+              <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-[#F4F6FA] px-4 py-2 text-sm font-medium text-[#030303]">
+                <Mail className="h-4 w-4 text-[#F26522]" />
+                Kontakt
+              </p>
+              <h1 className="max-w-3xl text-[clamp(2.5rem,6vw,5.5rem)] font-medium leading-[0.98] tracking-tight text-[#030303]">
+                Lass uns deinen nächsten Schritt klären.
+              </h1>
+              <p className="mt-7 max-w-xl text-[18px] leading-[1.65] text-gray-600">
+                Ruf an oder schreib eine kurze allgemeine Nachricht. Sensible Unterlagen klären wir erst danach.
+              </p>
+            </div>
+
+            <div className="mt-12 flex flex-col gap-3 sm:flex-row">
+              <a
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]"
+                href={mailtoHref}
+              >
+                E-Mail öffnen
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F4F6FA] px-7 py-4 text-[15px] font-medium text-[#030303] transition-colors hover:bg-[#e8ebf1]"
+                href={contactInfo.phoneHref}
+              >
+                <Phone className="h-4 w-4" />
+                Direkt anrufen
+              </a>
+            </div>
+          </div>
+
+          <div className="relative min-h-[460px] overflow-hidden bg-[#F4F6FA] lg:min-h-[680px]">
+            <img
+              alt="Ruhiges Beratungsgespräch zur MPU-Vorbereitung"
+              className="absolute inset-0 h-full w-full object-cover"
+              src={coachingImage}
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(3,3,3,0.3))]" />
+            <div className="absolute bottom-6 left-6 right-6 rounded-[28px] bg-white p-6 shadow-[0_18px_50px_rgba(17,24,39,0.18)] md:bottom-8 md:left-8 md:right-auto md:w-[390px]">
+              <p className="mb-3 text-sm font-medium text-gray-500">Wichtig für den Start</p>
+              <h2 className="text-3xl font-medium leading-tight tracking-tight text-[#030303]">
+                Erst allgemein anfragen, dann sicher vertiefen.
+              </h2>
+              <p className="mt-4 text-[15px] leading-[1.65] text-gray-600">
+                Ein normales Telefonat oder eine kurze E-Mail reicht für den ersten Schritt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="site-shell py-8 md:py-12">
+        <div className="grid gap-5 lg:grid-cols-[1fr_0.95fr]">
+          <div className="grid gap-4">
+            {contactMethods.map((method) => {
+              const Icon = method.icon;
+              return (
+                <a
+                  className="group grid gap-5 rounded-[1.5rem] bg-white p-6 shadow-[0_14px_42px_rgba(17,24,39,0.05)] transition-transform hover:-translate-y-1 md:grid-cols-[56px_1fr_auto] md:items-center md:rounded-[2rem] md:p-8"
+                  href={method.href}
+                  key={method.title}
+                >
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#fff2ec] text-[#F26522]">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <span>
+                    <span className="block text-sm font-medium text-gray-500">{method.title}</span>
+                    <span className="mt-1 block text-2xl font-medium tracking-tight text-[#030303]">{method.value}</span>
+                    <span className="mt-2 block text-[15px] leading-[1.6] text-gray-600">{method.copy}</span>
+                  </span>
+                  <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#F4F6FA] px-5 py-3 text-sm font-medium text-[#030303] transition-colors group-hover:bg-[#fff2ec] group-hover:text-[#F26522]">
+                    {method.action}
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="grid gap-5">
+            <div className="rounded-[1.5rem] bg-white p-7 shadow-[0_14px_42px_rgba(17,24,39,0.05)] md:rounded-[2rem] md:p-8">
+              <h2 className="text-3xl font-medium tracking-tight text-[#030303]">Was in die erste Nachricht gehört</h2>
+              <div className="mt-6 grid gap-3">
+                {firstMessagePoints.map((point) => (
+                  <div className="flex items-start gap-3 rounded-[20px] bg-[#F4F6FA] p-4" key={point}>
+                    <BadgeCheck className="mt-0.5 h-5 w-5 flex-none text-[#F26522]" />
+                    <p className="text-[15px] font-medium leading-[1.55] text-[#030303]">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[1.5rem] bg-[#030303] p-7 text-white shadow-[0_18px_54px_rgba(17,24,39,0.12)] md:rounded-[2rem] md:p-8">
+              <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white">
+                <ShieldCheck className="h-4 w-4 text-[#F26522]" />
+                Datenschutz
+              </p>
+              <h2 className="text-3xl font-medium tracking-tight">Bitte keine sensiblen Unterlagen anhängen.</h2>
+              <div className="mt-6 grid gap-3">
+                {sensitiveNotes.map((note) => (
+                  <p className="rounded-[18px] bg-white/8 p-4 text-[15px] leading-[1.6] text-white/72" key={note}>
+                    {note}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
 const ownerValues = [
   {
     icon: Route,
@@ -1416,7 +1604,7 @@ function OwnerAboutPage() {
             </div>
 
             <div className="mt-12 grid gap-4 sm:grid-cols-2">
-              <a className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/#kontakt")}>
+              <a className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]" href={appHref("/kontakt.html")}>
                 Erstgespräch planen
                 <ArrowRight className="h-5 w-5" />
               </a>
@@ -1696,7 +1884,7 @@ function EnhancedSimulatorQuestionnaire() {
     "",
     "Viele Grüße"
   ].join("\n\n");
-  const mailtoHref = `mailto:?subject=${encodeURIComponent(
+  const mailtoHref = `mailto:${contactInfo.email}?subject=${encodeURIComponent(
     "Allgemeine Anfrage zur MPU-Vorbereitung"
   )}&body=${encodeURIComponent(emailBody)}`;
 
@@ -2098,6 +2286,10 @@ function normalizeRoute(pathname: string, search = "") {
 
   path = path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
 
+  if (path === "/kontakt.html") {
+    return "/kontakt";
+  }
+
   if ((knownAppRoutes as readonly string[]).includes(path)) {
     return path;
   }
@@ -2110,6 +2302,7 @@ function App() {
   if (route === "/koffer") return <ProductPage programKey="koffer" />;
   if (route === "/simulator") return <ProductPage programKey="simulator" />;
   if (route === "/coaching") return <ProductPage programKey="coaching" />;
+  if (route === "/kontakt") return <ContactPage />;
   if (route === "/simulator-zugang") return <SimulatorAccessPage />;
   if (route === "/ueber-uns") return <OwnerAboutPage />;
 
