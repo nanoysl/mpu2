@@ -620,6 +620,31 @@ const checkoutLinks = {
   coaching: "https://www.checkout-ds24.com/product/703137"
 } as const;
 
+const simulatorAccessStorageKey = "mpu-safe-simulator-access";
+const simulatorAccessToken = "paid";
+
+const knownAppRoutes = ["/koffer", "/simulator", "/coaching", "/simulator-zugang", "/ueber-uns"] as const;
+
+function hasSimulatorAccessParam(search: string) {
+  return new URLSearchParams(search).get("access") === simulatorAccessToken;
+}
+
+function hasStoredSimulatorAccess() {
+  try {
+    return window.localStorage.getItem(simulatorAccessStorageKey) === simulatorAccessToken;
+  } catch {
+    return false;
+  }
+}
+
+function storeSimulatorAccess() {
+  try {
+    window.localStorage.setItem(simulatorAccessStorageKey, simulatorAccessToken);
+  } catch {
+    // The checkout redirect should still unlock the current visit if storage is unavailable.
+  }
+}
+
 const programPages = {
   koffer: {
     eyebrow: "MPU Erste-Hilfe-Koffer",
@@ -708,7 +733,7 @@ type ProgramKey = keyof typeof programPages;
 
 const checkoutNotices: Record<ProgramKey, string> = {
   koffer: "Zahlung, Rechnung und digitale Auslieferung laufen sicher über Digistore24.",
-  simulator: "Zahlung, Rechnung und Zugang laufen über Digistore24. Die finale Simulator-Freischaltung wird nach dem Kauf bereitgestellt.",
+  simulator: "Zahlung, Rechnung und Zugang laufen über Digistore24. Nach dem Kauf leitet Digistore24 direkt zur freigeschalteten 15-Fragen-Seite weiter.",
   coaching: "Buchung und Rechnung laufen über Digistore24. Sensible Unterlagen bitte erst nach persönlicher Abstimmung übermitteln."
 };
 
@@ -888,8 +913,8 @@ function PricingPackages() {
               <p className="c2-desc">
                 Perfekt, wenn du schnell Ordnung in deinen Fall bringen und die naechsten Schritte klar sehen willst.
               </p>
-              <a className="c2-btn" data-package="MPU Erste-Hilfe-Koffer" href={appHref("/koffer")}>
-                Mehr ansehen
+              <a className="c2-btn" data-package="MPU Erste-Hilfe-Koffer" href={checkoutLinks.koffer}>
+                Koffer kaufen
               </a>
               <img alt="" className="c2-product" loading="lazy" src={kofferImage} />
             </article>
@@ -908,8 +933,8 @@ function PricingPackages() {
                 <li>Digitale Vorbereitung im Browser</li>
                 <li>Zugang nach externer Zahlung</li>
               </ul>
-              <a className="c2-btn" data-package="MPU Safe Simulator" href={appHref("/simulator")}>
-                Mehr ansehen
+              <a className="c2-btn" data-package="MPU Safe Simulator" href={checkoutLinks.simulator}>
+                Simulator kaufen
               </a>
               <img alt="" className="c2-product" loading="lazy" src={simulatorImage} />
             </article>
@@ -926,8 +951,8 @@ function PricingPackages() {
             <br />
             Dann klaeren wir Fallanalyse, Nachweise und Gespraechstraining individuell im Erstgespraech.
           </p>
-          <a className="c2-btn" data-package="1:1 MPU Coaching" href={appHref("/coaching")}>
-            Coaching ansehen
+          <a className="c2-btn" data-package="1:1 MPU Coaching" href={checkoutLinks.coaching}>
+            Coaching buchen
           </a>
           <div
             aria-hidden="true"
@@ -1579,7 +1604,7 @@ function LockedSimulatorAccess() {
             Der Simulator öffnet sich nach dem Kauf.
           </h1>
           <p className="mt-7 max-w-xl text-[18px] leading-[1.65] text-gray-600">
-            Diese Seite ist für die Digistore24-Dankeseite vorgesehen. Nach der Zahlung leiten wir den Käufer hier mit einem Freischaltmerkmal weiter.
+            Diese Seite ist für die Digistore24-Dankeseite vorgesehen. Nach der Zahlung wird der Käufer mit einem Freischaltmerkmal hierher geleitet und sieht direkt die 15 Fragen.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F26522] px-7 py-4 text-[15px] font-medium text-white transition-colors hover:bg-[#e05a1a]" href={checkoutLinks.simulator}>
@@ -2012,8 +2037,14 @@ function EnhancedSimulatorQuestionnaire() {
 }
 
 function SimulatorAccessPage() {
-  const params = new URLSearchParams(window.location.search);
-  const hasAccess = params.get("access") === "paid";
+  const [hasAccess, setHasAccess] = useState(() => hasSimulatorAccessParam(window.location.search) || hasStoredSimulatorAccess());
+
+  useEffect(() => {
+    if (hasSimulatorAccessParam(window.location.search)) {
+      storeSimulatorAccess();
+      setHasAccess(true);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#f0f0f0]">
@@ -2039,7 +2070,18 @@ function HomePage() {
   );
 }
 
-function normalizeRoute(pathname: string) {
+function normalizeRoute(pathname: string, search = "") {
+  const queryRoute = new URLSearchParams(search).get("route");
+
+  if (queryRoute) {
+    const normalizedQueryRoute = queryRoute.startsWith("/") ? queryRoute : `/${queryRoute}`;
+    const cleanQueryRoute = normalizedQueryRoute.endsWith("/") && normalizedQueryRoute !== "/" ? normalizedQueryRoute.slice(0, -1) : normalizedQueryRoute;
+
+    if ((knownAppRoutes as readonly string[]).includes(cleanQueryRoute)) {
+      return cleanQueryRoute;
+    }
+  }
+
   let path = pathname;
 
   if (appBasePath && (path === appBasePath || path.startsWith(`${appBasePath}/`))) {
@@ -2048,20 +2090,14 @@ function normalizeRoute(pathname: string) {
 
   path = path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
 
-  if (
-    path === "/koffer" ||
-    path === "/simulator" ||
-    path === "/coaching" ||
-    path === "/simulator-zugang" ||
-    path === "/ueber-uns"
-  ) {
+  if ((knownAppRoutes as readonly string[]).includes(path)) {
     return path;
   }
   return "/";
 }
 
 function App() {
-  const route = normalizeRoute(window.location.pathname);
+  const route = normalizeRoute(window.location.pathname, window.location.search);
 
   if (route === "/koffer") return <ProductPage programKey="koffer" />;
   if (route === "/simulator") return <ProductPage programKey="simulator" />;
