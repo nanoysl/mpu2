@@ -653,6 +653,12 @@ function storeSimulatorAccess() {
   }
 }
 
+function hideSimulatorAccessParam() {
+  if (window.history.replaceState) {
+    window.history.replaceState({}, document.title, appHref("/simulator-zugang"));
+  }
+}
+
 const programPages = {
   koffer: {
     eyebrow: "MPU Erste-Hilfe-Koffer",
@@ -2254,6 +2260,7 @@ function SimulatorAccessPage() {
   useEffect(() => {
     if (hasSimulatorAccessParam(window.location.search)) {
       storeSimulatorAccess();
+      hideSimulatorAccessParam();
       setHasAccess(true);
     }
   }, []);
