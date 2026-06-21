@@ -696,8 +696,8 @@ const programPages = {
     image: simulatorImage,
     checkout: checkoutLinks.simulator,
     primaryLabel: "Simulator kaufen",
-    secondaryLabel: "Zugang ansehen",
-    secondaryHref: "/simulator-zugang",
+    secondaryLabel: "Ablauf ansehen",
+    secondaryHref: "/#ablauf",
     points: ["15 Reflexionsfragen", "Risikoprofil nach Abschluss", "Zugang nach externer Zahlung", "69 € werden beim Coaching angerechnet"],
     sections: [
       {
