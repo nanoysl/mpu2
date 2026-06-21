@@ -655,7 +655,7 @@ function storeSimulatorAccess() {
 
 function hideSimulatorAccessParam() {
   if (window.history.replaceState) {
-    window.history.replaceState({}, document.title, appHref("/simulator-zugang"));
+    window.history.replaceState({}, document.title, appHref("/simulator-zugang.html"));
   }
 }
 
@@ -2311,6 +2311,10 @@ function normalizeRoute(pathname: string, search = "") {
 
   if (path === "/kontakt.html") {
     return "/kontakt";
+  }
+
+  if (path === "/simulator-zugang.html") {
+    return "/simulator-zugang";
   }
 
   if ((knownAppRoutes as readonly string[]).includes(path)) {

@@ -13,6 +13,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, "index.html"),
+        simulatorZugang: path.resolve(__dirname, "simulator-zugang.html"),
         kontakt: path.resolve(__dirname, "kontakt.html"),
         impressum: path.resolve(__dirname, "impressum.html"),
         datenschutz: path.resolve(__dirname, "datenschutz.html"),
