@@ -110,7 +110,7 @@ function Navbar() {
           <div className="flex items-center justify-center rounded-full bg-white/20 p-1 md:p-1.5">
             <ArrowUpRight className="h-4 w-4 text-white md:h-5 md:w-5" />
           </div>
-          <span className="text-xs font-normal md:text-sm">Erstgespraech</span>
+          <span className="text-xs font-normal md:text-sm">Erstgespräch</span>
         </motion.a>
       </div>
     </nav>
@@ -182,7 +182,7 @@ function BottomRightCorner() {
         <ArrowUpRight className="h-5 w-5 text-white md:h-6 md:w-6" />
       </div>
       <div>
-        <p className="text-[16px] font-normal text-[#030303] md:text-[20px]">Erstgespraech</p>
+        <p className="text-[16px] font-normal text-[#030303] md:text-[20px]">Erstgespräch</p>
         <a
           className="flex items-center gap-1 text-[#030303] transition-opacity hover:opacity-70"
           href={appHref("/kontakt.html")}
@@ -223,7 +223,7 @@ function Hero() {
               initial={{ opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Starte mit Koffer, trainiere im Simulator und nutze persoenliches Coaching fuer deinen Fahrplan.
+              Starte mit Koffer, trainiere im Simulator und nutze persönliches Coaching für deinen Fahrplan.
             </motion.p>
           </div>
           <BottomLeftCard />
@@ -286,7 +286,7 @@ function AboutSection() {
             </div>
             <div className="sm:w-[55%]">
               <img
-                alt="Coach erklaert MPU Fahrplan am Whiteboard"
+                alt="Coach erklärt MPU Fahrplan am Whiteboard"
                 className="aspect-[4/3] w-full rounded-xl object-cover sm:rounded-2xl"
                 src={aboutCoachingBoardImage}
               />
@@ -329,7 +329,7 @@ function AboutSection() {
 
           <div className="self-end">
             <img
-              alt="Coach erklaert MPU Fahrplan am Whiteboard"
+              alt="Coach erklärt MPU Fahrplan am Whiteboard"
               className="aspect-[4/3] w-full rounded-2xl object-cover"
               src={aboutCoachingBoardImage}
             />
@@ -580,7 +580,7 @@ const metrics = [
   { value: "19,99 €", label: "Digitaler Einstieg" },
   { value: "69 €", label: "Simulator Zugang" },
   { value: "3", label: "Vorbereitungswege" },
-  { value: "1:1", label: "Persoenliches Coaching" }
+  { value: "1:1", label: "Persönliches Coaching" }
 ];
 
 const processSteps = [
@@ -609,7 +609,7 @@ const processSteps = [
     copy: "Im Gesprächstraining üben wir realistische Situationen - sicher und souverän.",
     image: processTrainingImage,
     imagePosition: "50% 50%",
-    alt: "Ruhiger Raum fuer Gespraechstraining"
+    alt: "Ruhiger Raum für Gesprächstraining"
   },
   {
     id: "termin",
@@ -618,7 +618,7 @@ const processSteps = [
     copy: "Wir begleiten Sie bis zum MPU-Termin und stehen an Ihrer Seite.",
     image: processTerminImage,
     imagePosition: "50% 50%",
-    alt: "Auto auf einer Bergstrasse als Symbol fuer den MPU-Termin",
+    alt: "Auto auf einer Bergstraße als Symbol für den MPU-Termin",
     final: true
   }
 ];
@@ -914,13 +914,13 @@ function PricingPackages() {
                 <span>einmalig</span>
               </div>
               <ul className="c2-list bordered">
-                <li>PDF-Guide fuer den Sofortstart</li>
-                <li>Checklisten fuer Fristen und Nachweise</li>
+                <li>PDF-Guide für den Sofortstart</li>
+                <li>Checklisten für Fristen und Nachweise</li>
                 <li>Audio-Mentoring zur Orientierung</li>
-                <li>Kein oeffentlicher Download im Repo</li>
+                <li>Kein öffentlicher Download im Repo</li>
               </ul>
               <p className="c2-desc">
-                Perfekt, wenn du schnell Ordnung in deinen Fall bringen und die naechsten Schritte klar sehen willst.
+                Perfekt, wenn du schnell Ordnung in deinen Fall bringen und die nächsten Schritte klar sehen willst.
               </p>
               <a className="c2-btn" data-package="MPU Erste-Hilfe-Koffer" href={appHref("/koffer")}>
                 Mehr erfahren
@@ -956,9 +956,9 @@ function PricingPackages() {
             <span className="c2-price-amount">ab 900 €</span>
           </div>
           <p className="c2-bottom-desc">
-            Du brauchst einen persoenlichen Fahrplan?
+            Du brauchst einen persönlichen Fahrplan?
             <br />
-            Dann klaeren wir Fallanalyse, Nachweise und Gespraechstraining individuell im Erstgespraech.
+            Dann klären wir Fallanalyse, Nachweise und Gesprächstraining individuell im Erstgespräch.
           </p>
           <a className="c2-btn" data-package="1:1 MPU Coaching" href={appHref("/coaching")}>
             Mehr erfahren
@@ -1174,7 +1174,7 @@ const footerColumns = [
     href: "/kontakt.html",
     links: [
       { label: "Über uns", href: "/ueber-uns" },
-      { label: "Erstgespraech", href: "/kontakt.html" },
+      { label: "Erstgespräch", href: "/kontakt.html" },
       { label: "Impressum", href: "/impressum.html" },
       { label: "Datenschutz", href: "/datenschutz.html" },
       { label: "AGB", href: "/agb.html" },
@@ -1190,7 +1190,7 @@ function Footer() {
         <div>
           <p className="text-2xl font-normal tracking-tighter text-[#030303]">MPU Safe</p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-[#030303]">
-            Digitale MPU Vorbereitung mit klaren Produkten, externer Zahlung und geschuetzter Auslieferung.
+            Digitale MPU Vorbereitung mit klaren Produkten, externer Zahlung und geschützter Auslieferung.
           </p>
         </div>
         <div className="grid grid-cols-3 gap-6">
