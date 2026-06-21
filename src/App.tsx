@@ -1881,7 +1881,7 @@ function EnhancedSimulatorQuestionnaire() {
     "",
     "ich habe eine allgemeine Anfrage zur MPU-Vorbereitung.",
     "",
-    "Bitte senden Sie keine Gutachten, Abstinenznachweise, medizinischen Unterlagen, Strafakten oder vollständigen Akten per normaler E-Mail.",
+    "Ich sende über diesen Weg keine Gutachten, Abstinenznachweise, medizinischen Unterlagen, Strafakten oder vollständigen Akten.",
     "Für eine Fallanalyse stimmen wir bei Bedarf einen geeigneten sicheren Übermittlungsweg ab.",
     "",
     "Viele Grüße"
