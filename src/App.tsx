@@ -197,7 +197,7 @@ function BottomRightCorner() {
 
 function KlarnaTrustBadge() {
   return (
-    <div className="mt-5 flex w-[calc(100vw-4.5rem)] max-w-[18.5rem] items-center gap-2.5 self-center rounded-[1.25rem] border border-white/70 bg-white/[0.9] p-3 pr-3 text-left text-[#030303] shadow-[0_18px_60px_rgba(3,3,3,0.12)] backdrop-blur-xl sm:w-fit sm:max-w-[25rem] sm:gap-3 sm:rounded-[1.4rem] sm:bg-white/[0.82] sm:p-3.5 sm:pr-4 lg:self-start lg:ml-3">
+    <div className="flex w-full max-w-[18.5rem] items-center gap-2.5 rounded-[1.25rem] border border-white/70 bg-white/[0.9] p-3 pr-3 text-left text-[#030303] shadow-[0_18px_60px_rgba(3,3,3,0.12)] backdrop-blur-xl sm:w-fit sm:max-w-[25rem] sm:gap-3 sm:rounded-[1.4rem] sm:bg-white/[0.82] sm:p-3.5 sm:pr-4">
       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/70 sm:h-9 sm:w-9">
         <ShieldCheck className="h-3.5 w-3.5 text-[#F26522] sm:h-4 sm:w-4" />
       </span>
@@ -246,6 +246,8 @@ function Hero() {
             >
               Starte mit Koffer, trainiere im Simulator und nutze persönliches Coaching für deinen Fahrplan.
             </motion.p>
+          </div>
+          <div className="mt-5 w-full px-4 md:px-6 lg:px-10">
             <KlarnaTrustBadge />
           </div>
           <BottomLeftCard />
