@@ -197,7 +197,7 @@ function BottomRightCorner() {
 
 function KlarnaTrustBadge() {
   return (
-    <div className="flex w-full max-w-[18.5rem] items-center gap-2.5 rounded-[1.25rem] border border-[#ffc2dc] bg-[#FFA8CD] p-3 pr-3 text-left text-[#030303] shadow-[0_18px_60px_rgba(98,21,55,0.18)] backdrop-blur-xl sm:w-fit sm:max-w-[25rem] sm:gap-3 sm:rounded-[1.4rem] sm:p-3.5 sm:pr-4">
+    <div className="flex w-full max-w-[18.5rem] items-center gap-2.5 rounded-[1.25rem] border border-white/70 bg-white/[0.9] p-3 pr-3 text-left text-[#030303] shadow-[0_18px_60px_rgba(3,3,3,0.12)] backdrop-blur-xl sm:w-fit sm:max-w-[25rem] sm:gap-3 sm:rounded-[1.4rem] sm:border-[#ffc2dc] sm:bg-[#FFA8CD] sm:p-3.5 sm:pr-4 sm:shadow-[0_18px_60px_rgba(98,21,55,0.18)]">
       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/70 sm:h-9 sm:w-9">
         <ShieldCheck className="h-3.5 w-3.5 text-[#F26522] sm:h-4 sm:w-4" />
       </span>
