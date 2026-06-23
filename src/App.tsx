@@ -30,6 +30,7 @@ import heroMpuPlanImage from "../assets/optimized/site/hero-mpu-plan.jpg";
 import coachingImage from "../assets/optimized/site/coaching-1zu1.jpg";
 import kofferImage from "../assets/optimized/site/erste-hilfe-koffer.jpg";
 import simulatorImage from "../assets/optimized/site/mpu-simulator.jpg";
+import klarnaBadge from "../assets/brand/klarna-badge.svg";
 import routeArrowImage from "../assets/generated/v2/route-arrow-white.png";
 import processFallanalyseImage from "../assets/optimized/site/process-fallanalyse.jpg";
 import processNachweiseImage from "../assets/optimized/site/process-nachweise.jpg";
@@ -194,6 +195,26 @@ function BottomRightCorner() {
   );
 }
 
+function KlarnaTrustBadge() {
+  return (
+    <motion.div
+      animate={{ opacity: 1, x: 0 }}
+      className="absolute left-6 top-24 z-20 hidden items-center gap-3 rounded-[1.4rem] border border-white/70 bg-white/80 p-3.5 pr-4 text-[#030303] shadow-[0_18px_60px_rgba(3,3,3,0.12)] backdrop-blur-xl lg:flex"
+      initial={{ opacity: 0, x: -14 }}
+      transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+    >
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/65">
+        <ShieldCheck className="h-4 w-4 text-[#F26522]" />
+      </span>
+      <span className="flex min-w-0 flex-col">
+        <span className="text-[13px] font-medium leading-none">Sichere Zahlung</span>
+        <span className="mt-1 text-[12px] leading-tight text-[#030303]/80">Klarna im Digistore24-Checkout</span>
+      </span>
+      <img alt="Klarna" className="h-5 w-auto shrink-0" src={klarnaBadge} />
+    </motion.div>
+  );
+}
+
 function Hero() {
   return (
     <div className="flex min-h-[100dvh] w-full items-center justify-center bg-[#f0f0f0] py-3 md:py-5" id="top">
@@ -206,6 +227,7 @@ function Hero() {
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_5%,rgba(255,255,255,0.82),rgba(255,255,255,0.24)_44%,rgba(240,240,240,0.08)_100%)]" />
         <div className="relative z-10 flex min-h-[inherit] w-full flex-col items-center">
           <Navbar />
+          <KlarnaTrustBadge />
           <div className="flex w-full max-w-4xl flex-col items-center px-6 pt-8 text-center">
             <HeroBadge />
             <motion.h1
