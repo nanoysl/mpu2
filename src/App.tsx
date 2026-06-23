@@ -47,7 +47,7 @@ function appHref(href: string) {
 }
 
 const contactInfo = {
-  email: "abalikci18@gmail.com",
+  email: "mpu.berater@web.de",
   phoneLabel: "05971 9782341",
   phoneHref: "tel:+4959719782341",
   mobileLabel: "0176 72810840",
