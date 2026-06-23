@@ -197,21 +197,22 @@ function BottomRightCorner() {
 
 function KlarnaTrustBadge() {
   return (
-    <motion.div
-      animate={{ opacity: 1, x: 0 }}
-      className="absolute left-6 top-24 z-20 hidden items-center gap-3 rounded-[1.4rem] border border-white/70 bg-white/80 p-3.5 pr-4 text-[#030303] shadow-[0_18px_60px_rgba(3,3,3,0.12)] backdrop-blur-xl lg:flex"
-      initial={{ opacity: 0, x: -14 }}
-      transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-    >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/65">
-        <ShieldCheck className="h-4 w-4 text-[#F26522]" />
+    <div className="mt-5 flex w-[calc(100vw-4.5rem)] max-w-[18.5rem] items-center gap-2.5 self-center rounded-[1.25rem] border border-white/70 bg-white/[0.9] p-3 pr-3 text-left text-[#030303] shadow-[0_18px_60px_rgba(3,3,3,0.12)] backdrop-blur-xl sm:w-fit sm:max-w-[25rem] sm:gap-3 sm:rounded-[1.4rem] sm:bg-white/[0.82] sm:p-3.5 sm:pr-4 lg:self-start lg:ml-3">
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/70 sm:h-9 sm:w-9">
+        <ShieldCheck className="h-3.5 w-3.5 text-[#F26522] sm:h-4 sm:w-4" />
       </span>
-      <span className="flex min-w-0 flex-col">
-        <span className="text-[13px] font-medium leading-none">Sichere Zahlung</span>
-        <span className="mt-1 text-[12px] leading-tight text-[#030303]/80">Klarna im Digistore24-Checkout</span>
+      <span className="flex min-w-0 flex-1 flex-col">
+        <span className="text-[12px] font-medium leading-none sm:text-[13px]">Sichere Zahlung</span>
+        <span className="mt-1 text-[11px] leading-tight text-[#030303]/80 sm:text-[12px]">
+          Zahle flexibel in deinem Tempo.
+        </span>
+        <span className="mt-0.5 text-[11px] leading-tight text-[#030303]/60">
+          <span className="sm:hidden">Klarna im Checkout</span>
+          <span className="hidden sm:inline">Klarna im Digistore24-Checkout</span>
+        </span>
       </span>
-      <img alt="Klarna" className="h-5 w-auto shrink-0" src={klarnaBadge} />
-    </motion.div>
+      <img alt="Klarna" className="h-[18px] w-auto shrink-0 sm:h-5" src={klarnaBadge} />
+    </div>
   );
 }
 
@@ -227,12 +228,11 @@ function Hero() {
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_5%,rgba(255,255,255,0.82),rgba(255,255,255,0.24)_44%,rgba(240,240,240,0.08)_100%)]" />
         <div className="relative z-10 flex min-h-[inherit] w-full flex-col items-center">
           <Navbar />
-          <KlarnaTrustBadge />
-          <div className="flex w-full max-w-4xl flex-col items-center px-6 pt-8 text-center">
+          <div className="flex w-full max-w-[calc(100vw-3rem)] flex-col items-center px-4 pt-8 text-center sm:max-w-4xl sm:px-6">
             <HeroBadge />
             <motion.h1
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-2 text-4xl font-normal leading-[1.05] tracking-tight text-[#030303] sm:text-5xl md:text-6xl lg:text-[80px]"
+              className="mb-2 max-w-[20rem] text-4xl font-normal leading-[1.05] tracking-tight text-[#030303] sm:max-w-none sm:text-5xl md:text-6xl lg:text-[80px]"
               initial={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
@@ -240,12 +240,13 @@ function Hero() {
             </motion.h1>
             <motion.p
               animate={{ opacity: 1 }}
-              className="max-w-xl text-sm font-normal leading-relaxed text-[#030303] opacity-80 sm:text-base md:text-lg"
+              className="w-full max-w-[20rem] text-sm font-normal leading-relaxed text-[#030303] opacity-80 sm:max-w-xl sm:text-base md:text-lg"
               initial={{ opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               Starte mit Koffer, trainiere im Simulator und nutze persönliches Coaching für deinen Fahrplan.
             </motion.p>
+            <KlarnaTrustBadge />
           </div>
           <BottomLeftCard />
           <BottomRightCorner />
