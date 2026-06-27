@@ -1860,6 +1860,29 @@ function LockedSimulatorAccess() {
   );
 }
 
+function DigistoreThankYouNotice() {
+  return (
+    <section className="site-shell pb-5">
+      <div className="flex flex-col gap-3 rounded-[1.35rem] bg-white p-5 text-[#030303] shadow-[0_18px_54px_rgba(17,24,39,0.06)] sm:flex-row sm:items-center sm:justify-between sm:rounded-[2rem] sm:p-6">
+        <div className="flex items-start gap-3">
+          <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[#fff2ec] text-[#F26522]">
+            <ShieldCheck className="h-5 w-5" />
+          </span>
+          <div>
+            <p className="text-sm font-semibold">Hinweis zur Zahlung</p>
+            <p className="mt-1 text-[15px] leading-[1.55] text-gray-600">
+              <strong className="font-semibold text-[#030303]">Die Abbuchung erfolgt durch Digistore24 GmbH (Deutschland).</strong>
+            </p>
+          </div>
+        </div>
+        <p className="hidden text-[13px] leading-[1.5] text-gray-500 sm:block sm:max-w-sm sm:text-right">
+          Dieser Hinweis gilt für den kostenpflichtigen MPU-Simulator.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function EnhancedSimulatorQuestionnaire() {
   const totalQuestions = simulatorQuestions.length;
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -2293,6 +2316,7 @@ function SimulatorAccessPage() {
   return (
     <main className="min-h-screen bg-[#f0f0f0]">
       <PageHeader />
+      <DigistoreThankYouNotice />
       {hasAccess ? <EnhancedSimulatorQuestionnaire /> : <LockedSimulatorAccess />}
       <Footer />
     </main>
